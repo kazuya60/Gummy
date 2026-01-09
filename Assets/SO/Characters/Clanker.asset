@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea805a7d26e08cc49ac9fd3af26af7ec, type: 3}
-  m_Name: Character_Zed
+  m_Name: Clanker
   m_EditorClassIdentifier: 
-  CharacterSprite: {fileID: 21300000, guid: 3dd550d41eab36446a1a9fd544943318, type: 3}
-  CharacterName: Zed
+  CharacterSprite: {fileID: 21300000, guid: ed23114e9b6e40b42ac9f94db9ac9255, type: 3}
+  CharacterName: Clanker

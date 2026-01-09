@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
+  m_Name: Interact
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
+    ActorDialogue: Find the Difference
+  choices:
+  - choiceText: Win
+    nextDialogue: {fileID: 11400000, guid: a3a8d2e289f09b84f92dbb3393faa2cc, type: 2}
+  - choiceText: Lose
+    nextDialogue: {fileID: 11400000, guid: d859b38c94a84ea40a4ff4c2247b811a, type: 2}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
+  m_Name: Gummy_2
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: "Vee\u2019s Social Anxiety meter also went up!"
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: This is not a good thing at all!
+  choices: []
+  nextDialogue: {fileID: 11400000, guid: c44605ffa67c14d49a8d84cf2bc13050, type: 2}

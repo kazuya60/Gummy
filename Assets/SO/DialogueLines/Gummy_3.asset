@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
+  m_Name: Gummy_3
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: The higher this meter gets, the quicker the timer depletes for
+      the find the difference problems
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: That would make social interactions really difficult!
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: "So it\u2019s best to keep that meter low!"
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: Huh? How to lower her social anxiety?
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: Oh that requires you to do some of the dopamine activities
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: "They\u2019re bad... but effective!"
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: "I recommend to only choose those if it\u2019s an absolute emergency..."
+  - character: {fileID: 11400000, guid: b549721febc29dd41af545a407ab1eea, type: 2}
+    ActorDialogue: Class is dismissed!
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: "Well done! You survived today\u2019s first class!"
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: "You\u2019ll be totally fine on your own!"
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: Just remember!
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: Interact with others to increase your Social Standing!
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: Bad things have negative consequences
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: And good things have good consequences!
+  choices: []

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
+  m_Name: Teacher n Vee
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - character: {fileID: 11400000, guid: b549721febc29dd41af545a407ab1eea, type: 2}
+    ActorDialogue: Hmm... Vee?
+  - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
+    ActorDialogue: Vee jolts awake.
+  - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
+    ActorDialogue: huh?!
+  - character: {fileID: 11400000, guid: b549721febc29dd41af545a407ab1eea, type: 2}
+    ActorDialogue: "Can you solve this equation on the board?\u201D"
+  choices:
+  - choiceText: Interact
+    nextDialogue: {fileID: 11400000, guid: b2aa1f3fd75f62c4dba450d9481e7f89, type: 2}
+  - choiceText: Reject
+    nextDialogue: {fileID: 11400000, guid: 9bda1c1d935ecab44998573811b2f5a9, type: 2}
+  nextDialogue: {fileID: 0}

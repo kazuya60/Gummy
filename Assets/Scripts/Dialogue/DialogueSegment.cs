@@ -1,5 +1,5 @@
-
 using UnityEngine;
+
 [System.Serializable]
 public class DialogueSegment
 {
@@ -7,5 +7,5 @@ public class DialogueSegment
 
     [TextArea]
     public string ActorDialogue;
-}
 
+}

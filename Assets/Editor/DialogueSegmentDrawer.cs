@@ -27,14 +27,29 @@ public class DialogueSegmentDrawer : PropertyDrawer
             .ToArray();
 
         characterNames = cachedCharacters
-            .Select(c => string.IsNullOrEmpty(c.CharacterName) ? c.name : c.CharacterName)
+            .Select(c =>
+                string.IsNullOrEmpty(c.CharacterName)
+                    ? c.name
+                    : c.CharacterName
+            )
             .ToArray();
     }
+
+    private static void ClearCache()
+    {
+        cachedCharacters = null;
+        characterNames = null;
+    }
+
+    static DialogueSegmentDrawer()
+    {
+        EditorApplication.projectChanged += ClearCache;
+    }
+
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
         CacheCharacters();
-
         EditorGUI.BeginProperty(position, label, property);
 
         var characterProp = property.FindPropertyRelative("character");
@@ -42,11 +57,15 @@ public class DialogueSegmentDrawer : PropertyDrawer
 
         float line = EditorGUIUtility.singleLineHeight;
         float space = 4f;
+        float y = position.y;
 
-        Rect charRect = new Rect(position.x, position.y, position.width, line);
+        // Character dropdown
+        Rect charRect = new Rect(position.x, y, position.width, line);
 
-        int currentIndex = Mathf.Max(0,
-            System.Array.IndexOf(cachedCharacters, characterProp.objectReferenceValue));
+        int currentIndex = Mathf.Max(
+            0,
+            System.Array.IndexOf(cachedCharacters, characterProp.objectReferenceValue)
+        );
 
         if (cachedCharacters.Length == 0)
         {
@@ -64,38 +83,41 @@ public class DialogueSegmentDrawer : PropertyDrawer
             characterProp.objectReferenceValue = cachedCharacters[newIndex];
         }
 
-        Rect dialogueRect = new Rect(
-            position.x,
-            position.y + line + space,
-            position.width,
-            EditorGUI.GetPropertyHeight(dialogueProp)
-        );
+        y += line + space;
 
-        EditorGUI.LabelField(
-    new Rect(dialogueRect.x, dialogueRect.y, dialogueRect.width, EditorGUIUtility.singleLineHeight),
-    "Actor Dialogue"
-);
+        // Actor Dialogue label
+        Rect labelRect = new Rect(position.x, y, position.width, line);
+        EditorGUI.LabelField(labelRect, "Actor Dialogue");
+        y += line;
 
-Rect textAreaRect = new Rect(
-    dialogueRect.x,
-    dialogueRect.y + EditorGUIUtility.singleLineHeight,
-    dialogueRect.width,
-    dialogueRect.height - EditorGUIUtility.singleLineHeight
-);
+        // Actor Dialogue TextArea
+        int minLines = 3;
+        // int maxLines = 6;
 
-dialogueProp.stringValue = EditorGUI.TextArea(
-    textAreaRect,
-    dialogueProp.stringValue
-);
+        float textHeight = EditorStyles.textArea.lineHeight * minLines;
+        Rect textRect = new Rect(position.x, y, position.width, textHeight);
 
+        EditorGUI.BeginChangeCheck();
+        string newText = EditorGUI.TextArea(textRect, dialogueProp.stringValue);
+        if (EditorGUI.EndChangeCheck())
+        {
+            dialogueProp.stringValue = newText;
+        }
 
         EditorGUI.EndProperty();
     }
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-{
-    return EditorGUIUtility.singleLineHeight * 2 +
-           EditorGUIUtility.singleLineHeight * 3 + 6f;
-}
+    {
+        float line = EditorGUIUtility.singleLineHeight;
+        float space = 4f;
 
+        int minLines = 3;
+        float textHeight = EditorStyles.textArea.lineHeight * minLines;
+
+        return
+            line + space +          // Character
+            line +                  // Label
+            textHeight;             // TextArea
+    }
 }
