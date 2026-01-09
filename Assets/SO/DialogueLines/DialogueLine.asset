@@ -12,25 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
   m_Name: DialogueLine
   m_EditorClassIdentifier: 
-  DialogueScriptableObject:
-    DialogueLines:
-    - character: {fileID: 11400000, guid: 88c561243de007948a67c2a6a935cf2d, type: 2}
-      ActorDialogue: This map says the core should be right below us.
-    - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-      ActorDialogue: Great. Another mystery hole with zero safety rails.
-    - character: {fileID: 11400000, guid: 827054f1b1da10643873f8f35a67efb5, type: 2}
-      ActorDialogue: 'Warning: structural stability is not guaranteed.'
-    - character: {fileID: 11400000, guid: ba7c99ac17c971044855f1da5236a127, type: 2}
-      ActorDialogue: Nothing important ever is.
-    - character: {fileID: 11400000, guid: 88c561243de007948a67c2a6a935cf2d, type: 2}
-      ActorDialogue: Can you disable the traps, Clanker?
-    - character: {fileID: 11400000, guid: 827054f1b1da10643873f8f35a67efb5, type: 2}
-      ActorDialogue: "Attempting override\u2026 success rate: forty-two percent."
-    - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-      ActorDialogue: I love those odds.
-    - character: {fileID: 11400000, guid: ba7c99ac17c971044855f1da5236a127, type: 2}
-      ActorDialogue: If this fails, run left. Trust me.
-    - character: {fileID: 11400000, guid: 88c561243de007948a67c2a6a935cf2d, type: 2}
-      ActorDialogue: "And if we don\u2019t?"
-    - character: {fileID: 11400000, guid: ba7c99ac17c971044855f1da5236a127, type: 2}
-      ActorDialogue: Then the story ends early.
+  dialogueSegments:
+  - character: {fileID: 11400000, guid: ba7c99ac17c971044855f1da5236a127, type: 2}
+    ActorDialogue: 'Clicking anywhere on the screen advances dialogue
+
+      Works
+      for:
+
+      Mouse (PC)
+
+      Touch input (mobile)
+
+      Input is ignored
+      when no dialogue is active'
+  - character: {fileID: 11400000, guid: ba7c99ac17c971044855f1da5236a127, type: 2}
+    ActorDialogue: 'Optional improvements (tell me if you want any)
+
+      Block
+      clicks when clicking UI elements only
+
+      Add a short click cooldown
+
+      Advance
+      only when text is fully typed (typewriter effect)
+
+      Support keyboard input
+      (space / enter)'
+  - character: {fileID: 11400000, guid: 827054f1b1da10643873f8f35a67efb5, type: 2}
+    ActorDialogue: State which one you want and I will implement it directly.
