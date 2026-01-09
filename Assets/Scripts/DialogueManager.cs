@@ -27,21 +27,21 @@ public class DialogueManager : MonoBehaviour
     public void DialogueStarter()
     {
 
-        if (dialogueLineIndex >= dialogueSO.DialogueScriptableObject.DialogueLines.Length)
+        if (dialogueLineIndex >= dialogueSO.dialogueSegments.Length)
         {
            return; 
         }
         DialogueInit(dialogueLineIndex);
         dialogueLineIndex++;
-        Debug.Log("Available Dialogues " + dialogueSO.DialogueScriptableObject.DialogueLines.Length + " and current index is" + dialogueLineIndex);
+        Debug.Log("Available Dialogues " + dialogueSO.dialogueSegments.Length + " and current index is" + dialogueLineIndex);
 
     }
 
     private void DialogueInit(int index)
     {
-        charName.text = dialogueSO.DialogueScriptableObject.DialogueLines[index].character.CharacterName;
-        charSprite.sprite = dialogueSO.DialogueScriptableObject.DialogueLines[index].character.CharacterSprite;
-        charDialogue.text = dialogueSO.DialogueScriptableObject.DialogueLines[index].ActorDialogue;
+        charName.text = dialogueSO.dialogueSegments[index].character.CharacterName;
+        charSprite.sprite = dialogueSO.dialogueSegments[index].character.CharacterSprite;
+        charDialogue.text = dialogueSO.dialogueSegments[index].ActorDialogue;
     }
 
     public void Restart()

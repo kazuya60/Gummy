@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DialogueLine",menuName = "Create New Dialogue")]
 public class DialogueSO : ScriptableObject
 {
-    public DialogueLine DialogueScriptableObject;
+    public DialogueSegment[] dialogueSegments;
 }
