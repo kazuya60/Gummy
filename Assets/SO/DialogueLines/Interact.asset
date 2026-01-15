@@ -15,8 +15,6 @@ MonoBehaviour:
   dialogueSegments:
   - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
     ActorDialogue: Find the Difference
-  choices:
-  - choiceText: Win
-    nextDialogue: {fileID: 11400000, guid: a3a8d2e289f09b84f92dbb3393faa2cc, type: 2}
-  - choiceText: Lose
-    nextDialogue: {fileID: 11400000, guid: d859b38c94a84ea40a4ff4c2247b811a, type: 2}
+  interactDialogue: {fileID: 11400000, guid: a3a8d2e289f09b84f92dbb3393faa2cc, type: 2}
+  rejectDialogue: {fileID: 11400000, guid: d859b38c94a84ea40a4ff4c2247b811a, type: 2}
+  nextDialogue: {fileID: 0}

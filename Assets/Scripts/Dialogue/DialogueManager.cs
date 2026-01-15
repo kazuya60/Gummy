@@ -14,9 +14,11 @@ public class DialogueManager : MonoBehaviour
     public Image charSprite;
     public CanvasGroup gameplayUICanvas;
 
-    [Header("Choices UI")]
-    public GameObject choicesPanel;
-    public Button choiceButtonPrefab;
+    [Header("Interact / Reject UI")]
+    public GameObject decisionPanel;
+    public Button interactButton;
+    public Button rejectButton;
+
 
     private DialogueSO currentDialogue;
     private DialogueSegment[] segments;
@@ -27,7 +29,7 @@ public class DialogueManager : MonoBehaviour
     {
         Instance = this;
         dialoguePanel.SetActive(false);
-        choicesPanel.SetActive(false);
+        decisionPanel.SetActive(false);
         introPanel.SetActive(true);
     }
 
@@ -57,7 +59,6 @@ public class DialogueManager : MonoBehaviour
         dialogueActive = true;
         dialoguePanel.SetActive(true);
 
-        ClearChoices();
         SetGameplayUIInteractable(false);
 
         ShowLine();
@@ -81,67 +82,73 @@ public class DialogueManager : MonoBehaviour
         var line = segments[index];
 
         charName.text = line.character.CharacterName;
-        charSprite.sprite = line.character.CharacterSprite;
         charDialogue.text = line.ActorDialogue;
+
+        if (line.character.CharacterSprite != null)
+        {
+            charSprite.gameObject.SetActive(true);
+            charSprite.sprite = line.character.CharacterSprite;
+        }
+        else
+        {
+            charSprite.gameObject.SetActive(false);
+        }
     }
+
 
     private void ShowEndChoicesOrEnd()
-{
-    dialogueActive = false;
-
-    // 1. Choices take priority
-    if (currentDialogue.choices != null &&
-        currentDialogue.choices.Length > 0)
     {
-        ShowChoices(currentDialogue.choices);
-        return;
-    }
+        dialogueActive = false;
 
-    // 2. No choices → auto-continue if linked
-    if (currentDialogue.nextDialogue != null)
-    {
-        StartDialogue(currentDialogue.nextDialogue);
-        return;
-    }
-
-    // 3. Nothing else → end dialogue
-    EndDialogue();
-}
-
-
-    private void ShowChoices(DialogueChoice[] choices)
-    {
-        choicesPanel.SetActive(true);
-
-        foreach (var choice in choices)
+        // Interact / Reject takes priority
+        if (currentDialogue.interactDialogue != null ||
+            currentDialogue.rejectDialogue != null)
         {
-            Button btn = Instantiate(choiceButtonPrefab, choicesPanel.transform);
-            btn.GetComponentInChildren<TextMeshProUGUI>().text = choice.choiceText;
-
-            btn.onClick.AddListener(() =>
-            {
-                ClearChoices();
-                StartDialogue(choice.nextDialogue);
-            });
-        }
-    }
-
-    private void ClearChoices()
-    {
-        foreach (Transform child in choicesPanel.transform)
-        {
-            Destroy(child.gameObject);
+            ShowDecisionButtons();
+            return;
         }
 
-        choicesPanel.SetActive(false);
+        // Auto-continue
+        if (currentDialogue.nextDialogue != null)
+        {
+            StartDialogue(currentDialogue.nextDialogue);
+            return;
+        }
+
+        EndDialogue();
     }
+
+    private void ShowDecisionButtons()
+    {
+        decisionPanel.SetActive(true);
+
+        interactButton.gameObject.SetActive(currentDialogue.interactDialogue != null);
+        rejectButton.gameObject.SetActive(currentDialogue.rejectDialogue != null);
+
+        interactButton.onClick.RemoveAllListeners();
+        rejectButton.onClick.RemoveAllListeners();
+
+        interactButton.onClick.AddListener(() =>
+        {
+            decisionPanel.SetActive(false);
+            StartDialogue(currentDialogue.interactDialogue);
+        });
+
+        rejectButton.onClick.AddListener(() =>
+        {
+            decisionPanel.SetActive(false);
+            StartDialogue(currentDialogue.rejectDialogue);
+        });
+    }
+
 
     private void EndDialogue()
     {
         dialogueActive = false;
         dialoguePanel.SetActive(false);
+        decisionPanel.SetActive(false);
 
-        ClearChoices();
         SetGameplayUIInteractable(true);
     }
+
 }
