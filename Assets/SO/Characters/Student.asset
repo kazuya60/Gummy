@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea805a7d26e08cc49ac9fd3af26af7ec, type: 3}
-  m_Name: Bram
+  m_Name: Student
   m_EditorClassIdentifier: 
-  CharacterSprite: {fileID: 21300000, guid: 63d7d32c5fd71f74b829fdf64aba2950, type: 3}
-  CharacterName: Bram
+  CharacterSprite: {fileID: 21300000, guid: e6ba71801f70f8944b575e7ff5b89a13, type: 3}
+  CharacterName: Student
