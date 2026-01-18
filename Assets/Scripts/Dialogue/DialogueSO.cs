@@ -13,5 +13,8 @@ public class DialogueSO : ScriptableObject
 
     [Header("Automatic continuation (no choices)")]
     public DialogueSO nextDialogue;
+
+    public DialogueEventType startEvent;
+    public DialogueEventType endEvent;
 }
 

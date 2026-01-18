@@ -27,4 +27,8 @@ MonoBehaviour:
     ActorDialogue: This meter fills up whenever you successfully interact with others
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
     ActorDialogue: Try interacting with someone!
-  choices: []
+  interactDialogue: {fileID: 0}
+  rejectDialogue: {fileID: 0}
+  nextDialogue: {fileID: 0}
+  startEvent: 1
+  endEvent: 0

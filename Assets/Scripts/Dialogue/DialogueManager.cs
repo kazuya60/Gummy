@@ -25,6 +25,8 @@ public class DialogueManager : MonoBehaviour
     private int index;
     private bool dialogueActive;
 
+    public DialogueEventHandler dialogueEventHandler;
+
     private void Awake()
     {
         Instance = this;
@@ -58,6 +60,7 @@ public class DialogueManager : MonoBehaviour
 
         dialogueActive = true;
         dialoguePanel.SetActive(true);
+        StartEventStarter();
 
         SetGameplayUIInteractable(false);
 
@@ -148,7 +151,20 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         decisionPanel.SetActive(false);
 
+        EndEventStarter();
+
         SetGameplayUIInteractable(true);
     }
+
+    void StartEventStarter()
+{
+    dialogueEventHandler.TriggerEvent(currentDialogue.startEvent);
+}
+
+void EndEventStarter()
+{
+    dialogueEventHandler.TriggerEvent(currentDialogue.endEvent);
+}
+
 
 }
