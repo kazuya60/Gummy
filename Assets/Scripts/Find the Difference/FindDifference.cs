@@ -1,92 +1,57 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class FindDifference : MonoBehaviour
 {
-    private int totalDifferences;
-    private int foundDifferences = 0;
+    public Transform differencesParent;
     public int chances = 3;
-    public GameObject[] correctDifferencesObjects;
-    public GameObject correctDifferenceParent;
 
-    public Button[] wrongClickButton;
+    private int totalDifferences;
+    private int foundDifferences;
+    private bool gameEnded;
+
+    private HashSet<Transform> foundRoots = new HashSet<Transform>();
 
     void Start()
     {
-        totalDifferences = correctDifferenceParent.transform.childCount;
-        correctDifferencesObjects = new GameObject[correctDifferenceParent.transform.childCount];
-        for (int i = 0; i < correctDifferenceParent.transform.childCount; i++)
-        {
-            correctDifferencesObjects[i] = correctDifferenceParent.transform.GetChild(i).gameObject;
-            Button btn = correctDifferencesObjects[i].AddComponent<Button>();
-            if (btn != null)
-            {
-                // Capture the button reference in the lambda
-                Button currentBtn = btn;
-                btn.onClick.AddListener(() => OnDifferenceClicked(currentBtn));
-            }
-        }
+        totalDifferences = differencesParent.childCount;
     }
 
-    private void OnDifferenceClicked(Button clickedButton)
+    public void OnDifferenceFound(Transform diffRoot)
     {
-        if (chances > 0) // Changed != to >
+        if (gameEnded) return;
+
+        if (foundRoots.Contains(diffRoot))
+            return;
+
+        foundRoots.Add(diffRoot);
+        foundDifferences++;
+
+        foreach (DifferenceSpot spot in diffRoot.GetComponentsInChildren<DifferenceSpot>())
         {
-            Debug.Log("Difference Found!");
-        
-            // Make the button non-interactable
-            clickedButton.interactable = false;
-            
-            // Increment found differences counter
-            foundDifferences++;
-            
-            // Check if all differences are found
-            if (foundDifferences >= totalDifferences)
-            {
-                Debug.Log("All differences found!");
-                // Add your game completion logic here
-            }
+            spot.DisableAll();
         }
-        else
+
+        Debug.Log("Difference found!");
+
+        if (foundDifferences >= totalDifferences)
         {
-            Debug.Log("No more chances left! Game Over.");
-            DisableAllButtons();
+            gameEnded = true;
+            Debug.Log("ALL DIFFERENCES FOUND!");
         }
     }
 
     public void OnWrongClick()
     {
+        if (gameEnded) return;
+
         chances--;
-        Debug.Log("Wrong click! Chances left: " + chances);
+        Debug.Log("Wrong click. Chances left: " + chances);
+
         if (chances <= 0)
         {
-            Debug.Log("No more chances left! Game Over.");
-            DisableAllButtons();
-        }
-    }
-
-    private void DisableAllButtons()
-    {
-        // Disable wrong click buttons
-        foreach (Button btn in wrongClickButton)
-        {
-            if (btn != null)
-            {
-                btn.interactable = false;
-            }
-        }
-        
-        // Disable all difference buttons
-        foreach (GameObject obj in correctDifferencesObjects)
-        {
-            Button btn = obj.GetComponent<Button>();
-            if (btn != null)
-            {
-                btn.interactable = false;
-            }
+            gameEnded = true;
+            Debug.Log("GAME OVER");
         }
     }
 }
