@@ -23,12 +23,27 @@ public class DifferenceSpot : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick(PointerEventData eventData)
-    {
-        if (found) return;
+{
+    if (found) return;
 
-        found = true;
-        manager.OnDifferenceFound(diffRoot);
-    }
+    found = true;
+
+    RectTransform rect = transform as RectTransform;
+
+    Vector2 localPos;
+    RectTransformUtility.ScreenPointToLocalPointInRectangle(
+        rect,
+        eventData.position,
+        eventData.pressEventCamera,
+        out localPos
+    );
+
+    manager.SpawnIcon(manager.correctIconPrefab, rect, localPos);
+    manager.OnDifferenceFound(diffRoot);
+}
+
+
+
 
     public void DisableAll()
     {

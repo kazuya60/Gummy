@@ -9,6 +9,12 @@ public class FindDifference : MonoBehaviour
     private int totalDifferences;
     private int foundDifferences;
     private bool gameEnded;
+    public bool IsGameEnded => gameEnded;
+
+
+    public GameObject correctIconPrefab;
+    public GameObject wrongIconPrefab;
+
 
     private HashSet<Transform> foundRoots = new HashSet<Transform>();
 
@@ -54,4 +60,18 @@ public class FindDifference : MonoBehaviour
             Debug.Log("GAME OVER");
         }
     }
+
+    public void SpawnIcon(GameObject prefab, Transform parent, Vector2 localPosition)
+{
+    GameObject icon = Instantiate(prefab, parent);
+    RectTransform rect = icon.GetComponent<RectTransform>();
+
+    rect.anchoredPosition = localPosition;
+
+    // Auto destroy (for X mark)
+    Destroy(icon, 0.6f);
+}
+
+
+
 }
