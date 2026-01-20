@@ -961,6 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4dfe67f5622bf54799e5bb3e9839ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mirroredImage: {fileID: 385025947}
 --- !u!1 &194293745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,6 +2163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4dfe67f5622bf54799e5bb3e9839ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mirroredImage: {fileID: 188218984}
 --- !u!1 &400754186
 GameObject:
   m_ObjectHideFlags: 0

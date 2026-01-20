@@ -24,26 +24,23 @@ public class DifferenceSpot : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
 {
-    if (found) return;
+    if (manager.IsGameEnded)
+        return;
+
+    if (found)
+        return;
 
     found = true;
 
-    RectTransform rect = transform as RectTransform;
+    RectTransform thisRect = transform as RectTransform;
+    RectTransform otherRect = GetSiblingSpot();
 
-    Vector2 localPos;
-    RectTransformUtility.ScreenPointToLocalPointInRectangle(
-        rect,
-        eventData.position,
-        eventData.pressEventCamera,
-        out localPos
-    );
+    manager.SpawnIcon(manager.correctIconPrefab, thisRect);
 
-    manager.SpawnIcon(
-    manager.correctIconPrefab,
-    rect
-);
-
-
+    if (otherRect != null)
+    {
+        manager.SpawnIcon(manager.correctIconPrefab, otherRect);
+    }
 
     manager.OnDifferenceFound(diffRoot);
 }
@@ -51,17 +48,31 @@ public class DifferenceSpot : MonoBehaviour, IPointerClickHandler
 
 
 
+
+
     public void DisableAll()
-{
-    foreach (var spot in diffRoot.GetComponentsInChildren<DifferenceSpot>())
     {
-        var img = spot.GetComponent<Image>();
-        if (img != null)
+        foreach (var spot in diffRoot.GetComponentsInChildren<DifferenceSpot>())
         {
-            img.raycastTarget = false;
-            img.enabled = false;
+            var img = spot.GetComponent<Image>();
+            if (img != null)
+            {
+                img.raycastTarget = false;
+                img.enabled = false;
+            }
         }
     }
+
+    public RectTransform GetSiblingSpot()
+{
+    foreach (Transform child in diffRoot)
+    {
+        if (child != transform)
+            return child as RectTransform;
+    }
+
+    return null;
 }
+
 
 }
