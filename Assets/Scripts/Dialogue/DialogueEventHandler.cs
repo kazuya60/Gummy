@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class DialogueEventHandler : MonoBehaviour
 {
+    [Header("Minigames")]
+    public GameObject spotDifferenceCanvas;
+    public GameObject dialogueCanvas;
+    public DialogueSO successDialogue;
+    public DialogueSO failureDialogue;
     private Dictionary<DialogueEventType, Action> dialogueEvents;
 
     private void Awake()
     {
         dialogueEvents = new Dictionary<DialogueEventType, Action>
         {
-            { DialogueEventType.SayHello, SayHello },
-            { DialogueEventType.Die, Die }
+            { DialogueEventType.StartSpotDifference, StartSpotDifference },
+            { DialogueEventType.EndSpotDifference, EndSpotDifference },
+            { DialogueEventType.DifferenceSuccess, () => FindDifferenceSuccess() },
+            { DialogueEventType.DifferenceFailure, () => FindDifferenceFailure() }
         };
+    }
+
+    public void FindDifferenceFailure()
+    {
+        if (failureDialogue != null)
+        {
+            EndSpotDifference();
+            DialogueManager.Instance.StartDialogue(failureDialogue);
+        }
+    }
+
+    public void FindDifferenceSuccess()
+    {
+        if (successDialogue != null)
+        {
+            EndSpotDifference();
+            DialogueManager.Instance.StartDialogue(successDialogue);
+        }
     }
 
     public void TriggerEvent(DialogueEventType eventType)
@@ -30,13 +55,23 @@ public class DialogueEventHandler : MonoBehaviour
         }
     }
 
-    private void SayHello()
-    {
-        Debug.Log("Say Helloww");
-    }
 
-    private void Die()
-    {
-        Debug.Log("Player has died.");
-    }
+    public void StartSpotDifference()
+{
+    spotDifferenceCanvas.SetActive(true);
+    dialogueCanvas.SetActive(false);
+    Debug.Log("Spot the Difference started");
+}
+
+private void EndSpotDifference()
+{
+    spotDifferenceCanvas.SetActive(false);
+    dialogueCanvas.SetActive(true);
+    Debug.Log("Spot the Difference ended");
+}
+
+
+
+
+    
 }

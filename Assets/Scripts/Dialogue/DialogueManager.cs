@@ -122,27 +122,51 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void ShowDecisionButtons()
+{
+    decisionPanel.SetActive(true);
+
+    interactButton.gameObject.SetActive(
+        currentDialogue.interactDialogue != null || 
+        currentDialogue.interactEvent != DialogueEventType.None
+    );
+
+    rejectButton.gameObject.SetActive(
+        currentDialogue.rejectDialogue != null || 
+        currentDialogue.rejectEvent != DialogueEventType.None
+    );
+
+    interactButton.onClick.RemoveAllListeners();
+    rejectButton.onClick.RemoveAllListeners();
+
+    interactButton.onClick.AddListener(() =>
     {
-        decisionPanel.SetActive(true);
+        decisionPanel.SetActive(false);
 
-        interactButton.gameObject.SetActive(currentDialogue.interactDialogue != null);
-        rejectButton.gameObject.SetActive(currentDialogue.rejectDialogue != null);
+        // Fire event first
+        if (currentDialogue.interactEvent != DialogueEventType.None)
+            dialogueEventHandler.TriggerEvent(currentDialogue.interactEvent);
 
-        interactButton.onClick.RemoveAllListeners();
-        rejectButton.onClick.RemoveAllListeners();
-
-        interactButton.onClick.AddListener(() =>
-        {
-            decisionPanel.SetActive(false);
+        // Continue dialogue if assigned
+        if (currentDialogue.interactDialogue != null)
             StartDialogue(currentDialogue.interactDialogue);
-        });
+        else
+            EndDialogue();
+    });
 
-        rejectButton.onClick.AddListener(() =>
-        {
-            decisionPanel.SetActive(false);
+    rejectButton.onClick.AddListener(() =>
+    {
+        decisionPanel.SetActive(false);
+
+        if (currentDialogue.rejectEvent != DialogueEventType.None)
+            dialogueEventHandler.TriggerEvent(currentDialogue.rejectEvent);
+
+        if (currentDialogue.rejectDialogue != null)
             StartDialogue(currentDialogue.rejectDialogue);
-        });
-    }
+        else
+            EndDialogue();
+    });
+}
+
 
 
     private void EndDialogue()

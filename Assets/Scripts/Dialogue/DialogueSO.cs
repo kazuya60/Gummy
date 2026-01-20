@@ -7,9 +7,14 @@ public class DialogueSO : ScriptableObject
 {
     public DialogueSegment[] dialogueSegments;
 
-    [Header("End Choices")]
-    public DialogueSO interactDialogue;
-    public DialogueSO rejectDialogue;
+    [Header("Interact Choice")]
+public DialogueSO interactDialogue;
+public DialogueEventType interactEvent;
+
+[Header("Reject Choice")]
+public DialogueSO rejectDialogue;
+public DialogueEventType rejectEvent;
+
 
     [Header("Automatic continuation (no choices)")]
     public DialogueSO nextDialogue;

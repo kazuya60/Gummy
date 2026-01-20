@@ -15,48 +15,53 @@ public class FindDifference : MonoBehaviour
     public bool IsGameEnded => gameEnded;
 
     [Header("Progress UI")]
-public Transform checkboxesParent;
-public Sprite uncheckedSprite;
-public Sprite checkedSprite;
+    public Transform checkboxesParent;
+    public Sprite uncheckedSprite;
+    public Sprite checkedSprite;
 
-private Image[] checkboxes;
+    private Image[] checkboxes;
 
 
 
     public GameObject correctIconPrefab;
     public GameObject wrongIconPrefab;
 
+    [Header("Dialogue Events")]
+public DialogueEventType successEvent;
+public DialogueEventType failureEvent;
+
+
 
     private HashSet<Transform> foundRoots = new HashSet<Transform>();
 
     void Start()
-{
-    totalDifferences = differencesParent.childCount;
-    UpdateChancesUI();
-
-    checkboxes = checkboxesParent.GetComponentsInChildren<Image>();
-
-    // Safety: ensure they all start unchecked
-    for (int i = 0; i < checkboxes.Length; i++)
     {
-        checkboxes[i].sprite = uncheckedSprite;
+        totalDifferences = differencesParent.childCount;
+        UpdateChancesUI();
+
+        checkboxes = checkboxesParent.GetComponentsInChildren<Image>();
+
+        // Safety: ensure they all start unchecked
+        for (int i = 0; i < checkboxes.Length; i++)
+        {
+            checkboxes[i].sprite = uncheckedSprite;
+        }
     }
-}
 
-private void UpdateChancesUI()
-{
-    if (chancesText != null)
-        chancesText.text = $"{chances}";
-}
+    private void UpdateChancesUI()
+    {
+        if (chancesText != null)
+            chancesText.text = $"{chances}";
+    }
 
-public void OnTimeUp()
+    public void OnTimeUp()
 {
     if (gameEnded)
         return;
 
-    gameEnded = true;
-    Debug.Log("GAME OVER - TIME UP");
+    EndGame(false);
 }
+
 
 
 
@@ -81,28 +86,28 @@ public void OnTimeUp()
         Debug.Log("Difference found!");
 
         if (foundDifferences >= totalDifferences)
-        {
-            gameEnded = true;
-            Debug.Log("ALL DIFFERENCES FOUND!");
-        }
+{
+    EndGame(true);
+}
+
     }
 
     public void OnWrongClick()
-{
-    if (gameEnded) return;
-
-    chances--;
-
-    UpdateChancesUI();
-
-    Debug.Log("Wrong click. Chances left: " + chances);
-
-    if (chances <= 0)
     {
-        gameEnded = true;
-        Debug.Log("GAME OVER");
-    }
+        if (gameEnded) return;
+
+        chances--;
+
+        UpdateChancesUI();
+
+        Debug.Log("Wrong click. Chances left: " + chances);
+
+        if (chances <= 0)
+{
+    EndGame(false);
 }
+
+    }
 
 
     public void SpawnIcon(
@@ -111,32 +116,54 @@ public void OnTimeUp()
     Vector2? localPosition = null,
     float lifetime = -1f
 )
-{
-    GameObject icon = Instantiate(prefab);
-    RectTransform rect = icon.GetComponent<RectTransform>();
-
-    rect.SetParent(parent, false);
-
-    // If no position is provided → snap to pivot
-    rect.anchoredPosition = localPosition ?? Vector2.zero;
-
-    rect.localRotation = Quaternion.identity;
-    rect.localScale = Vector3.one;
-
-    if (lifetime > 0f)
-        Destroy(icon, lifetime);
-}
-
-private void UpdateCheckboxUI()
-{
-    for (int i = 0; i < checkboxes.Length; i++)
     {
-        if (i < foundDifferences)
-            checkboxes[i].sprite = checkedSprite;
-        else
-            checkboxes[i].sprite = uncheckedSprite;
+        GameObject icon = Instantiate(prefab);
+        RectTransform rect = icon.GetComponent<RectTransform>();
+
+        rect.SetParent(parent, false);
+
+        // If no position is provided → snap to pivot
+        rect.anchoredPosition = localPosition ?? Vector2.zero;
+
+        rect.localRotation = Quaternion.identity;
+        rect.localScale = Vector3.one;
+
+        if (lifetime > 0f)
+            Destroy(icon, lifetime);
+    }
+
+    private void UpdateCheckboxUI()
+    {
+        for (int i = 0; i < checkboxes.Length; i++)
+        {
+            if (i < foundDifferences)
+                checkboxes[i].sprite = checkedSprite;
+            else
+                checkboxes[i].sprite = uncheckedSprite;
+        }
+    }
+
+    private void EndGame(bool success)
+{
+    if (gameEnded)
+        return;
+
+    gameEnded = true;
+
+    if (success)
+    {
+        Debug.Log("ALL DIFFERENCES FOUND!");
+        DialogueManager.Instance.dialogueEventHandler
+            .TriggerEvent(successEvent);
+    }
+    else
+    {
+        Debug.Log("GAME OVER");
+        DialogueManager.Instance.dialogueEventHandler
+            .TriggerEvent(failureEvent);
     }
 }
+
 
 
 

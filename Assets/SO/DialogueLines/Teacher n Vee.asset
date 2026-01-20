@@ -21,6 +21,10 @@ MonoBehaviour:
     ActorDialogue: huh?!
   - character: {fileID: 11400000, guid: b549721febc29dd41af545a407ab1eea, type: 2}
     ActorDialogue: "Can you solve this equation on the board?\u201D"
-  interactDialogue: {fileID: 11400000, guid: b2aa1f3fd75f62c4dba450d9481e7f89, type: 2}
+  interactDialogue: {fileID: 0}
+  interactEvent: 1
   rejectDialogue: {fileID: 11400000, guid: 9bda1c1d935ecab44998573811b2f5a9, type: 2}
+  rejectEvent: 0
   nextDialogue: {fileID: 0}
+  startEvent: 0
+  endEvent: 0

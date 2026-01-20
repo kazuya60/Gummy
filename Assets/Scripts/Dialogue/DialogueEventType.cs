@@ -1,7 +1,9 @@
 public enum DialogueEventType
 {
     None,
-    SayHello,
-    Die,
+    StartSpotDifference,
+    EndSpotDifference,
+    DifferenceSuccess,
+    DifferenceFailure,
     // Add more as needed
 }

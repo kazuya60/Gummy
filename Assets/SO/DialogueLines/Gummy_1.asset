@@ -28,7 +28,9 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
     ActorDialogue: Try interacting with someone!
   interactDialogue: {fileID: 0}
+  interactEvent: 0
   rejectDialogue: {fileID: 0}
+  rejectEvent: 0
   nextDialogue: {fileID: 0}
-  startEvent: 1
+  startEvent: 0
   endEvent: 0
