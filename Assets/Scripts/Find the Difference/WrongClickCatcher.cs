@@ -11,22 +11,30 @@ public class WrongClickCatcher : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick(PointerEventData eventData)
-{
-    if (manager.IsGameEnded)
-        return;
+    {
+        if (manager.IsGameEnded)
+            return;
 
-    RectTransform rect = transform as RectTransform;
+        RectTransform rect = transform as RectTransform;
 
-    Vector2 localPos;
-    RectTransformUtility.ScreenPointToLocalPointInRectangle(
-        rect,
-        eventData.position,
-        eventData.pressEventCamera,
-        out localPos
-    );
+        Vector2 localPos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            rect,
+            eventData.position,
+            eventData.pressEventCamera,
+            out localPos
+        );
 
-    manager.SpawnIcon(manager.wrongIconPrefab, rect, localPos);
-    manager.OnWrongClick();
-}
+        manager.SpawnIcon(
+    manager.wrongIconPrefab,
+    rect,
+    localPos,
+    0.6f
+);
+
+manager.OnWrongClick();
+
+
+    }
 
 }

@@ -61,16 +61,31 @@ public class FindDifference : MonoBehaviour
         }
     }
 
-    public void SpawnIcon(GameObject prefab, Transform parent, Vector2 localPosition)
+    public void SpawnIcon(
+    GameObject prefab,
+    RectTransform parent,
+    Vector2? localPosition = null,
+    float lifetime = -1f
+)
 {
-    GameObject icon = Instantiate(prefab, parent);
+    GameObject icon = Instantiate(prefab);
     RectTransform rect = icon.GetComponent<RectTransform>();
 
-    rect.anchoredPosition = localPosition;
+    rect.SetParent(parent, false);
 
-    // Auto destroy (for X mark)
-    Destroy(icon, 0.6f);
+    // If no position is provided → snap to pivot
+    rect.anchoredPosition = localPosition ?? Vector2.zero;
+
+    rect.localRotation = Quaternion.identity;
+    rect.localScale = Vector3.one;
+
+    if (lifetime > 0f)
+        Destroy(icon, lifetime);
 }
+
+
+
+
 
 
 

@@ -38,7 +38,13 @@ public class DifferenceSpot : MonoBehaviour, IPointerClickHandler
         out localPos
     );
 
-    manager.SpawnIcon(manager.correctIconPrefab, rect, localPos);
+    manager.SpawnIcon(
+    manager.correctIconPrefab,
+    rect
+);
+
+
+
     manager.OnDifferenceFound(diffRoot);
 }
 
@@ -46,12 +52,16 @@ public class DifferenceSpot : MonoBehaviour, IPointerClickHandler
 
 
     public void DisableAll()
+{
+    foreach (var spot in diffRoot.GetComponentsInChildren<DifferenceSpot>())
     {
-        // Disable ALL hit areas under this difference
-        foreach (var img in diffRoot.GetComponentsInChildren<Image>())
+        var img = spot.GetComponent<Image>();
+        if (img != null)
         {
             img.raycastTarget = false;
-            img.enabled = false; // optional visual feedback
+            img.enabled = false;
         }
     }
+}
+
 }
