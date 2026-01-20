@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3304798502615381353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4351123917536093101}
+  - component: {fileID: 1435769812653135008}
+  - component: {fileID: 3478529572842227993}
+  m_Layer: 0
+  m_Name: MethodData and DifferenceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4351123917536093101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3304798502615381353}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 947.77405, y: 502.27548, z: -4.743833}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1435769812653135008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3304798502615381353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f38ae734f6f0e47ad942f57703adff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gummyStarterDialogue: {fileID: 11400000, guid: ccabb5b3538854b46946848af19e0749, type: 2}
+--- !u!114 &3478529572842227993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3304798502615381353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa0ab3037aaac841ba54f7be86b606e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  differencesParent: {fileID: 0}
+  chances: 3
+  chancesText: {fileID: 0}
+  checkboxesParent: {fileID: 0}
+  uncheckedSprite: {fileID: 21300000, guid: 98ddba4a3e81802488466078ce9f36c5, type: 3}
+  checkedSprite: {fileID: 21300000, guid: 0df6b3bec30fc364ba2f197994180e2d, type: 3}
+  correctIconPrefab: {fileID: 9160851786654450502, guid: 9111a52f5561743429615590b395e5fa, type: 3}
+  wrongIconPrefab: {fileID: 8981040564116409920, guid: 719b6dcf9e12e594ab9490cdb4c920d0, type: 3}
