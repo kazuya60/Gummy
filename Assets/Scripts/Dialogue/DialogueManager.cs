@@ -122,50 +122,26 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void ShowDecisionButtons()
-{
-    decisionPanel.SetActive(true);
-
-    interactButton.gameObject.SetActive(
-        currentDialogue.interactDialogue != null || 
-        currentDialogue.interactEvent != DialogueEventType.None
-    );
-
-    rejectButton.gameObject.SetActive(
-        currentDialogue.rejectDialogue != null || 
-        currentDialogue.rejectEvent != DialogueEventType.None
-    );
-
-    interactButton.onClick.RemoveAllListeners();
-    rejectButton.onClick.RemoveAllListeners();
-
-    interactButton.onClick.AddListener(() =>
     {
-        decisionPanel.SetActive(false);
+        decisionPanel.SetActive(true);
 
-        // Fire event first
-        if (currentDialogue.interactEvent != DialogueEventType.None)
-            dialogueEventHandler.TriggerEvent(currentDialogue.interactEvent);
+        interactButton.gameObject.SetActive(
+            currentDialogue.interactDialogue != null ||
+            currentDialogue.interactEvent != DialogueEventType.None
+        );
 
-        // Continue dialogue if assigned
-        if (currentDialogue.interactDialogue != null)
-            StartDialogue(currentDialogue.interactDialogue);
-        else
-            EndDialogue();
-    });
+        rejectButton.gameObject.SetActive(
+            currentDialogue.rejectDialogue != null ||
+            currentDialogue.rejectEvent != DialogueEventType.None
+        );
 
-    rejectButton.onClick.AddListener(() =>
-    {
-        decisionPanel.SetActive(false);
+        interactButton.onClick.RemoveAllListeners();
+rejectButton.onClick.RemoveAllListeners();
 
-        if (currentDialogue.rejectEvent != DialogueEventType.None)
-            dialogueEventHandler.TriggerEvent(currentDialogue.rejectEvent);
+interactButton.onClick.AddListener(ForceInteract);
+rejectButton.onClick.AddListener(ForceReject);
 
-        if (currentDialogue.rejectDialogue != null)
-            StartDialogue(currentDialogue.rejectDialogue);
-        else
-            EndDialogue();
-    });
-}
+    }
 
 
 
@@ -181,14 +157,66 @@ public class DialogueManager : MonoBehaviour
     }
 
     void StartEventStarter()
-{
-    dialogueEventHandler.TriggerEvent(currentDialogue.startEvent);
-}
+    {
+        dialogueEventHandler.TriggerEvent(currentDialogue.startEvent);
+    }
 
-void EndEventStarter()
-{
-    dialogueEventHandler.TriggerEvent(currentDialogue.endEvent);
-}
+    void EndEventStarter()
+    {
+        dialogueEventHandler.TriggerEvent(currentDialogue.endEvent);
+    }
+
+    public void ForceReject()
+    {
+        // Safety: only reject when a decision is actually active
+        if (!decisionPanel.activeSelf)
+            return;
+
+        decisionPanel.SetActive(false);
+
+        // Fire reject event
+        if (currentDialogue.rejectEvent != DialogueEventType.None)
+        {
+            dialogueEventHandler.TriggerEvent(currentDialogue.rejectEvent);
+        }
+
+        // Continue reject dialogue if assigned
+        if (currentDialogue.rejectDialogue != null)
+        {
+            StartDialogue(currentDialogue.rejectDialogue);
+        }
+        else
+        {
+            EndDialogue();
+        }
+    }
+
+    public void ForceInteract()
+    {
+        // Safety: only interact when a decision is actually active
+        if (!decisionPanel.activeSelf)
+            return;
+
+        decisionPanel.SetActive(false);
+
+        // Fire interact event
+        if (currentDialogue.interactEvent != DialogueEventType.None)
+        {
+            dialogueEventHandler.TriggerEvent(currentDialogue.interactEvent);
+        }
+
+        // Continue interact dialogue if assigned
+        if (currentDialogue.interactDialogue != null)
+        {
+            StartDialogue(currentDialogue.interactDialogue);
+        }
+        else
+        {
+            EndDialogue();
+        }
+    }
+
+
 
 
 }

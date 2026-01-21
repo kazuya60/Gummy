@@ -9,4 +9,21 @@ public class MethodData : MonoBehaviour
     {
         DialogueManager.Instance.StartDialogue(gummyStarterDialogue);
     }
+
+    
+    
+    public void GoOnline()
+    {
+        DialogueManager.Instance.ForceReject();
+    }
+
+    public void DozeOff()
+    {
+        DialogueManager.Instance.ForceReject();
+    }
+
+    public void DoomScroll()
+    {
+        DialogueManager.Instance.ForceReject();
+    }
 }
