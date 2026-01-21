@@ -976,6 +976,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e3f4cbd2b73a447a7db1314cd1dde5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spotDifferenceCanvas: {fileID: 0}
+  dialogueCanvas: {fileID: 0}
+  successDialogue: {fileID: 0}
+  failureDialogue: {fileID: 0}
 --- !u!1 &210250656
 GameObject:
   m_ObjectHideFlags: 0
@@ -6286,38 +6290,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523498959614033371, guid: b552bbc3096ef98419c48b33b5a25ad4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2299681849138954773, guid: b552bbc3096ef98419c48b33b5a25ad4, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2299681849138954773, guid: b552bbc3096ef98419c48b33b5a25ad4, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2299681849138954773, guid: b552bbc3096ef98419c48b33b5a25ad4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2299681849138954773, guid: b552bbc3096ef98419c48b33b5a25ad4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048460864911916638, guid: b552bbc3096ef98419c48b33b5a25ad4, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048460864911916638, guid: b552bbc3096ef98419c48b33b5a25ad4, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048460864911916638, guid: b552bbc3096ef98419c48b33b5a25ad4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048460864911916638, guid: b552bbc3096ef98419c48b33b5a25ad4, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5951837531557903419, guid: b552bbc3096ef98419c48b33b5a25ad4, type: 3}
