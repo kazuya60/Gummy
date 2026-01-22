@@ -21,5 +21,10 @@ public DialogueEventType rejectEvent;
 
     public DialogueEventType startEvent;
     public DialogueEventType endEvent;
+
+    [Header("Background")]
+public BackgroundSO startBackground;
+public BackgroundSO endBackground;
+
 }
 

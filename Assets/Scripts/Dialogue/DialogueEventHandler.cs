@@ -9,6 +9,8 @@ public class DialogueEventHandler : MonoBehaviour
     public GameObject dialogueCanvas;
     public DialogueSO successDialogue;
     public DialogueSO failureDialogue;
+    [Header("Background Controller")]
+    public BackgroundController backgroundController;
     private Dictionary<DialogueEventType, Action> dialogueEvents;
 
     private void Awake()
@@ -18,7 +20,10 @@ public class DialogueEventHandler : MonoBehaviour
             { DialogueEventType.StartSpotDifference, StartSpotDifference },
             { DialogueEventType.EndSpotDifference, EndSpotDifference },
             { DialogueEventType.DifferenceSuccess, () => FindDifferenceSuccess() },
-            { DialogueEventType.DifferenceFailure, () => FindDifferenceFailure() }
+            { DialogueEventType.DifferenceFailure, () => FindDifferenceFailure() },
+
+            
+            
         };
     }
 

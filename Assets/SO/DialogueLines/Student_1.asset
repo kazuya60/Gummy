@@ -15,5 +15,12 @@ MonoBehaviour:
   dialogueSegments:
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
     ActorDialogue: '""'
-  choices: []
+  interactDialogue: {fileID: 0}
+  interactEvent: 0
+  rejectDialogue: {fileID: 0}
+  rejectEvent: 0
   nextDialogue: {fileID: 0}
+  startEvent: 0
+  endEvent: 0
+  startBackground: {fileID: 11400000, guid: 7737e508d6e10aa4999892ba2ecccd79, type: 2}
+  endBackground: {fileID: 0}

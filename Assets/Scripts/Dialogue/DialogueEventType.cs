@@ -5,5 +5,4 @@ public enum DialogueEventType
     EndSpotDifference,
     DifferenceSuccess,
     DifferenceFailure,
-    // Add more as needed
 }

@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI charDialogue;
     public Image charSprite;
     public CanvasGroup gameplayUICanvas;
+    public BackgroundController backgroundController;
 
     [Header("Interact / Reject UI")]
     public GameObject decisionPanel;
@@ -61,6 +62,12 @@ public class DialogueManager : MonoBehaviour
         dialogueActive = true;
         dialoguePanel.SetActive(true);
         StartEventStarter();
+        
+        if (dialogue.startBackground != null)
+{
+    backgroundController.SetBackground(dialogue.startBackground.sprite);
+}
+
 
         SetGameplayUIInteractable(false);
 
@@ -152,6 +159,12 @@ rejectButton.onClick.AddListener(ForceReject);
         decisionPanel.SetActive(false);
 
         EndEventStarter();
+
+        if (currentDialogue.endBackground != null)
+{
+    backgroundController.SetBackground(currentDialogue.endBackground.sprite);
+}
+
 
         SetGameplayUIInteractable(true);
     }
