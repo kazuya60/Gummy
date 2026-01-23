@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4351123917536093101}
   - component: {fileID: 1435769812653135008}
-  - component: {fileID: 3478529572842227993}
   m_Layer: 0
   m_Name: MethodData and DifferenceManager
   m_TagString: Untagged
@@ -46,23 +45,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gummyStarterDialogue: {fileID: 11400000, guid: ccabb5b3538854b46946848af19e0749, type: 2}
---- !u!114 &3478529572842227993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3304798502615381353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfa0ab3037aaac841ba54f7be86b606e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  differencesParent: {fileID: 0}
-  chances: 3
-  chancesText: {fileID: 0}
-  checkboxesParent: {fileID: 0}
-  uncheckedSprite: {fileID: 21300000, guid: 98ddba4a3e81802488466078ce9f36c5, type: 3}
-  checkedSprite: {fileID: 21300000, guid: 0df6b3bec30fc364ba2f197994180e2d, type: 3}
-  correctIconPrefab: {fileID: 9160851786654450502, guid: 9111a52f5561743429615590b395e5fa, type: 3}
-  wrongIconPrefab: {fileID: 8981040564116409920, guid: 719b6dcf9e12e594ab9490cdb4c920d0, type: 3}

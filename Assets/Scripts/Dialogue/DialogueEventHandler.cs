@@ -5,7 +5,12 @@ using UnityEngine;
 public class DialogueEventHandler : MonoBehaviour
 {
     [Header("Minigames")]
-    public GameObject spotDifferenceCanvas;
+public GameObject[] spotDifferencePrefabs;
+
+private GameObject activeSpotDifference;
+private List<int> unusedIndices = new List<int>();
+
+
     public GameObject dialogueCanvas;
     public DialogueSO successDialogue;
     public DialogueSO failureDialogue;
@@ -14,18 +19,24 @@ public class DialogueEventHandler : MonoBehaviour
     private Dictionary<DialogueEventType, Action> dialogueEvents;
 
     private void Awake()
+{
+    dialogueEvents = new Dictionary<DialogueEventType, Action>
     {
-        dialogueEvents = new Dictionary<DialogueEventType, Action>
-        {
-            { DialogueEventType.StartSpotDifference, StartSpotDifference },
-            { DialogueEventType.EndSpotDifference, EndSpotDifference },
-            { DialogueEventType.DifferenceSuccess, () => FindDifferenceSuccess() },
-            { DialogueEventType.DifferenceFailure, () => FindDifferenceFailure() },
+        { DialogueEventType.StartSpotDifference, StartSpotDifference },
+        { DialogueEventType.EndSpotDifference, EndSpotDifference },
+        { DialogueEventType.DifferenceSuccess, () => FindDifferenceSuccess() },
+        { DialogueEventType.DifferenceFailure, () => FindDifferenceFailure() }
+    };
 
-            
-            
-        };
-    }
+    RefillPool();
+}
+
+private void RefillPool()
+{
+    unusedIndices.Clear();
+    for (int i = 0; i < spotDifferencePrefabs.Length; i++)
+        unusedIndices.Add(i);
+}
 
     public void FindDifferenceFailure()
     {
@@ -63,17 +74,35 @@ public class DialogueEventHandler : MonoBehaviour
 
     public void StartSpotDifference()
 {
-    spotDifferenceCanvas.SetActive(true);
+    if (activeSpotDifference != null)
+        Destroy(activeSpotDifference);
+
+    if (unusedIndices.Count == 0)
+        RefillPool();
+
+    int pick = UnityEngine.Random.Range(0, unusedIndices.Count);
+    int prefabIndex = unusedIndices[pick];
+    unusedIndices.RemoveAt(pick);
+
+    activeSpotDifference = Instantiate(spotDifferencePrefabs[prefabIndex]);
+    activeSpotDifference.SetActive(true);
+
     dialogueCanvas.SetActive(false);
-    Debug.Log("Spot the Difference started");
 }
+
+
 
 private void EndSpotDifference()
 {
-    spotDifferenceCanvas.SetActive(false);
+    if (activeSpotDifference != null)
+        Destroy(activeSpotDifference);
+
+    activeSpotDifference = null;
     dialogueCanvas.SetActive(true);
+
     Debug.Log("Spot the Difference ended");
 }
+
 
 
 
