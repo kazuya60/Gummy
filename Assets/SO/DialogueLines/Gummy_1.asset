@@ -10,23 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
-  m_Name: Gummy_0
+  m_Name: Gummy_1
   m_EditorClassIdentifier: 
   dialogueSegments:
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: Oh no! Vee is already off to a bad start by sleeping in class!
+    ActorDialogue: Uh-oh! You chose one the Dopamine Activities
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: "It\u2019s okay tho!"
+    ActorDialogue: "Any time you choose to those instead of socializing the gumminess
+      of Vee\u2019s Gummy-o-Meter increases"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: "To wake her up, let\u2019s give her something to do!"
+    ActorDialogue: "When the bar reaches it\u2019s max, Vee will fail her objective!"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: On the right of the screen there are 3 bars!
+    ActorDialogue: "She\u2019ll become a permanent hermit!"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: The Social Standing Meter determines your final score
+    ActorDialogue: Hmmm... another thing also happened...
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: This meter fills up whenever you successfully interact with others
+    ActorDialogue: "Vee\u2019s social standing bar didn\u2019t move at all!"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: Try interacting with someone!
+    ActorDialogue: "Compared to rejecting or failing social interactions, this doesn\u2019t
+      affect Vee\u2019s score"
   interactDialogue: {fileID: 0}
   interactEvent: 0
   rejectDialogue: {fileID: 0}
@@ -34,9 +36,9 @@ MonoBehaviour:
   nextDialogue: {fileID: 0}
   startEvent: 0
   endEvent: 0
-  phoneDialogue: {fileID: 11400000, guid: c1448bbbe76fba645bf5266e92f9b52b, type: 2}
+  phoneDialogue: {fileID: 0}
   doomScrollEvent: 0
   dozeOffEvent: 0
   goOnlineEvent: 0
-  startBackground: {fileID: 11400000, guid: d3ae3715fd30ea74fbe60cf44124af4e, type: 2}
-  endBackground: {fileID: 11400000, guid: 3134e616fb3e78c40b88a2d55bd1c67b, type: 2}
+  startBackground: {fileID: 0}
+  endBackground: {fileID: 0}

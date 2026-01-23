@@ -22,6 +22,14 @@ public DialogueEventType rejectEvent;
     public DialogueEventType startEvent;
     public DialogueEventType endEvent;
 
+    [Header("Phone Choice (Shared Dialogue)")]
+public DialogueSO phoneDialogue;
+
+public DialogueEventType doomScrollEvent;
+public DialogueEventType dozeOffEvent;
+public DialogueEventType goOnlineEvent;
+
+
     [Header("Background")]
 public BackgroundSO startBackground;
 public BackgroundSO endBackground;

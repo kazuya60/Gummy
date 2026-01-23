@@ -1172,6 +1172,9 @@ MonoBehaviour:
   decisionPanel: {fileID: 593000297}
   interactButton: {fileID: 2123757944}
   rejectButton: {fileID: 1235985179}
+  doomScrollButton: {fileID: 2133365482}
+  dozeOffButton: {fileID: 940418784}
+  goOnlineButton: {fileID: 808123440}
   dialogueEventHandler: {fileID: 202665310}
 --- !u!1 &519420028
 GameObject:
@@ -2111,19 +2114,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 808123438}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 608998765}
-        m_TargetAssemblyTypeName: MethodData, Assembly-CSharp
-        m_MethodName: GoOnline
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &851477458
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,19 +2346,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 940418782}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 608998765}
-        m_TargetAssemblyTypeName: MethodData, Assembly-CSharp
-        m_MethodName: DozeOff
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &963628897
 GameObject:
   m_ObjectHideFlags: 0
@@ -4939,19 +4918,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2133365480}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 608998765}
-        m_TargetAssemblyTypeName: MethodData, Assembly-CSharp
-        m_MethodName: DoomScroll
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

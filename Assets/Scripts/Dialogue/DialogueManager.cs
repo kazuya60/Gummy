@@ -20,8 +20,16 @@ public class DialogueManager : MonoBehaviour
     public Button interactButton;
     public Button rejectButton;
 
+    [Header("Phone Buttons")]
+public Button doomScrollButton;
+public Button dozeOffButton;
+public Button goOnlineButton;
+
+
 
     private DialogueSO currentDialogue;
+    private bool phoneChoicesActive;
+
     private DialogueSegment[] segments;
     private int index;
     private bool dialogueActive;
@@ -34,6 +42,13 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         decisionPanel.SetActive(false);
         introPanel.SetActive(true);
+
+        doomScrollButton.onClick.AddListener(OnDoomScroll);
+dozeOffButton.onClick.AddListener(OnDozeOff);
+goOnlineButton.onClick.AddListener(OnGoOnline);
+
+SetPhoneButtonsInteractable(false);
+
     }
 
     private void Update()
@@ -46,6 +61,16 @@ public class DialogueManager : MonoBehaviour
             Next();
         }
     }
+
+    void SetPhoneButtonsInteractable(bool value)
+{
+    doomScrollButton.interactable = value;
+    dozeOffButton.interactable = value;
+    goOnlineButton.interactable = value;
+
+    phoneChoicesActive = value;
+}
+
 
     private void SetGameplayUIInteractable(bool value)
     {
@@ -70,6 +95,8 @@ public class DialogueManager : MonoBehaviour
 
 
         SetGameplayUIInteractable(false);
+        SetPhoneButtonsInteractable(false);
+
 
         ShowLine();
     }
@@ -130,6 +157,8 @@ public class DialogueManager : MonoBehaviour
 
     private void ShowDecisionButtons()
     {
+        ApplyPhoneChoicesFromDialogue(currentDialogue);
+
         decisionPanel.SetActive(true);
 
         interactButton.gameObject.SetActive(
@@ -165,9 +194,25 @@ rejectButton.onClick.AddListener(ForceReject);
     backgroundController.SetBackground(currentDialogue.endBackground.sprite);
 }
 
+        ApplyPhoneChoicesFromDialogue(currentDialogue);
 
         SetGameplayUIInteractable(true);
     }
+
+  void ApplyPhoneChoicesFromDialogue(DialogueSO dialogue)
+{
+    // Debug.Log("Applying phone choices: " + dialogue.name);
+
+    bool enable =
+        dialogue.phoneDialogue != null ||
+        dialogue.doomScrollEvent != DialogueEventType.None ||
+        dialogue.dozeOffEvent != DialogueEventType.None ||
+        dialogue.goOnlineEvent != DialogueEventType.None;
+
+    SetPhoneButtonsInteractable(enable);
+}
+
+
 
     void StartEventStarter()
     {
@@ -178,6 +223,40 @@ rejectButton.onClick.AddListener(ForceReject);
     {
         dialogueEventHandler.TriggerEvent(currentDialogue.endEvent);
     }
+
+    public void OnDoomScroll()
+{
+    if (!phoneChoicesActive) return;
+
+    ResolvePhoneChoice(currentDialogue.doomScrollEvent);
+}
+
+public void OnDozeOff()
+{
+    if (!phoneChoicesActive) return;
+
+    ResolvePhoneChoice(currentDialogue.dozeOffEvent);
+}
+
+public void OnGoOnline()
+{
+    if (!phoneChoicesActive) return;
+
+    ResolvePhoneChoice(currentDialogue.goOnlineEvent);
+}
+
+void ResolvePhoneChoice(DialogueEventType evt)
+{
+    SetPhoneButtonsInteractable(false);
+
+    if (evt != DialogueEventType.None)
+        dialogueEventHandler.TriggerEvent(evt);
+
+    if (currentDialogue.phoneDialogue != null)
+        StartDialogue(currentDialogue.phoneDialogue);
+}
+
+
 
     public void ForceReject()
     {

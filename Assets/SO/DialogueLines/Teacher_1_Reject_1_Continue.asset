@@ -10,11 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
-  m_Name: Teacher_1_Reject_1
+  m_Name: Teacher_1_Reject_1_Continue
   m_EditorClassIdentifier: 
   dialogueSegments:
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: "Oh no! Vee\u2019s Social Standing meter went down!"
+    ActorDialogue: "Failing or rejecting social interactions aren\u2019t beneficial
+      to Vee\u2019s Social Standing"
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: If you want to raise it you have to perform well socially!
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: There is no room for mistakes!
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: There is a good thing, however!
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: "Vee\u2019s Social Anxiety meter did not go up!"
   interactDialogue: {fileID: 0}
   interactEvent: 0
   rejectDialogue: {fileID: 0}

@@ -12,18 +12,18 @@ public class MethodData : MonoBehaviour
 
     
     
-    public void GoOnline()
-    {
-        DialogueManager.Instance.ForceReject();
-    }
+    // public void GoOnline()
+    // {
+    //     DialogueManager.Instance.ForceReject();
+    // }
 
-    public void DozeOff()
-    {
-        DialogueManager.Instance.ForceReject();
-    }
+    // public void DozeOff()
+    // {
+    //     DialogueManager.Instance.ForceReject();
+    // }
 
-    public void DoomScroll()
-    {
-        DialogueManager.Instance.ForceReject();
-    }
+    // public void DoomScroll()
+    // {
+    //     DialogueManager.Instance.ForceReject();
+    // }
 }
