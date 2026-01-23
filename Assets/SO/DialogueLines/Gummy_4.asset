@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
-  m_Name: Win
+  m_Name: Gummy_4
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - character: {fileID: 11400000, guid: b549721febc29dd41af545a407ab1eea, type: 2}
-    ActorDialogue: Well done, Vee
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: "Yippee! Vee\u2019s Social Standing meter went up!"
+    ActorDialogue: "Vee\u2019s Social Anxiety meter also went up!"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: But have you noticed something else?
+    ActorDialogue: This is not a good thing at all!
   choices: []
-  nextDialogue: {fileID: 11400000, guid: e099a7a8da9cb9a4a8c36970cf1a3fbb, type: 2}
+  nextDialogue: {fileID: 11400000, guid: c44605ffa67c14d49a8d84cf2bc13050, type: 2}

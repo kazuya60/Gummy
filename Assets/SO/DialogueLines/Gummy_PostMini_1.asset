@@ -10,12 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
-  m_Name: Gummy_2
+  m_Name: Gummy_PostMini_1
   m_EditorClassIdentifier: 
   dialogueSegments:
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
     ActorDialogue: "Vee\u2019s Social Anxiety meter also went up!"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
     ActorDialogue: This is not a good thing at all!
-  choices: []
-  nextDialogue: {fileID: 11400000, guid: c44605ffa67c14d49a8d84cf2bc13050, type: 2}
+  interactDialogue: {fileID: 0}
+  interactEvent: 0
+  rejectDialogue: {fileID: 0}
+  rejectEvent: 0
+  nextDialogue: {fileID: 0}
+  startEvent: 0
+  endEvent: 0
+  startBackground: {fileID: 0}
+  endBackground: {fileID: 0}

@@ -10,23 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
-  m_Name: Gummy_1
+  m_Name: April_1_Interact_Lose_1
   m_EditorClassIdentifier: 
   dialogueSegments:
+  - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
+    ActorDialogue: ....
+  - character: {fileID: 11400000, guid: 88c561243de007948a67c2a6a935cf2d, type: 2}
+    ActorDialogue: Umm?
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: Oh no! Vee is already off to a bad start by sleeping in class!
+    ActorDialogue: Oh no! Vee is having a breakdown!
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: "It\u2019s okay tho!"
+    ActorDialogue: "Oh no! Vee\u2019s Social Standing meter went down!"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: "To wake her up, let\u2019s give her something to do!"
+    ActorDialogue: "Failing or rejecting social interactions aren\u2019t beneficial
+      to Vee\u2019s Social Standing"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: On the right of the screen there are 3 bars!
+    ActorDialogue: If you want to raise it you have to perform well socially!
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: The Social Standing Meter determines your final score
-  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: This meter fills up whenever you successfully interact with others
-  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: Try interacting with someone!
+    ActorDialogue: There is no room for mistakes!
   interactDialogue: {fileID: 0}
   interactEvent: 0
   rejectDialogue: {fileID: 0}
@@ -34,5 +35,5 @@ MonoBehaviour:
   nextDialogue: {fileID: 0}
   startEvent: 0
   endEvent: 0
-  startBackground: {fileID: 11400000, guid: d3ae3715fd30ea74fbe60cf44124af4e, type: 2}
-  endBackground: {fileID: 11400000, guid: 3134e616fb3e78c40b88a2d55bd1c67b, type: 2}
+  startBackground: {fileID: 0}
+  endBackground: {fileID: 0}

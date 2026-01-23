@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
-  m_Name: Lose
+  m_Name: Teacher_1_Interact_Lose_1
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - character: {fileID: 11400000, guid: b549721febc29dd41af545a407ab1eea, type: 2}
-    ActorDialogue: "No, that\u2019s not it"
+  - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
+    ActorDialogue: "I don\u2019t know... ;n;"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
     ActorDialogue: "Oh no! Vee\u2019s Social Standing meter went down!"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
@@ -24,5 +24,12 @@ MonoBehaviour:
     ActorDialogue: If you want to raise it you have to perform well socially!
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
     ActorDialogue: There is no room for mistakes!
-  choices: []
+  interactDialogue: {fileID: 0}
+  interactEvent: 0
+  rejectDialogue: {fileID: 0}
+  rejectEvent: 0
   nextDialogue: {fileID: 11400000, guid: e099a7a8da9cb9a4a8c36970cf1a3fbb, type: 2}
+  startEvent: 0
+  endEvent: 0
+  startBackground: {fileID: 0}
+  endBackground: {fileID: 0}
