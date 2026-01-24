@@ -28,6 +28,8 @@ public Button goOnlineButton;
 
 
     private DialogueSO currentDialogue;
+    public DialogueSO CurrentDialogue => currentDialogue;
+
     private bool phoneChoicesActive;
 
     private DialogueSegment[] segments;

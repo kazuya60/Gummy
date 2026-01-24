@@ -10,30 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
-  m_Name: Teacher_1_Reject_1_Continue
+  m_Name: Gummy_1
   m_EditorClassIdentifier: 
   dialogueSegments:
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: "Failing or rejecting social interactions aren\u2019t beneficial
-      to Vee\u2019s Social Standing"
+    ActorDialogue: Uh-oh! You chose one the Dopamine Activities
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: If you want to raise it you have to perform well socially!
+    ActorDialogue: "Any time you choose to those instead of socializing the gumminess
+      of Vee\u2019s Gummy-o-Meter increases"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: There is no room for mistakes!
+    ActorDialogue: "When the bar reaches it\u2019s max, Vee will fail her objective!"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: There is a good thing, however!
+    ActorDialogue: "She\u2019ll become a permanent hermit!"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: "Vee\u2019s Social Anxiety meter did not go up!"
+    ActorDialogue: Hmmm... another thing also happened...
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: "Vee\u2019s social standing bar didn\u2019t move at all!"
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: "Compared to rejecting or failing social interactions, this doesn\u2019t
+      affect Vee\u2019s score"
   interactDialogue: {fileID: 0}
   interactEvent: 0
   rejectDialogue: {fileID: 0}
   rejectEvent: 0
-  nextDialogue: {fileID: 11400000, guid: c44605ffa67c14d49a8d84cf2bc13050, type: 2}
+  nextDialogue: {fileID: 11400000, guid: 6b41c1052b575d240b1d1dda4066a6f4, type: 2}
   startEvent: 0
   endEvent: 0
   phoneDialogue: {fileID: 0}
   doomScrollEvent: 0
   dozeOffEvent: 0
   goOnlineEvent: 0
+  differenceWinDialogue: {fileID: 0}
+  differenceLoseDialogue: {fileID: 0}
   startBackground: {fileID: 0}
   endBackground: {fileID: 0}

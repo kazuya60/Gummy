@@ -58,5 +58,11 @@ MonoBehaviour:
   nextDialogue: {fileID: 0}
   startEvent: 0
   endEvent: 0
-  startBackground: {fileID: 0}
+  phoneDialogue: {fileID: 0}
+  doomScrollEvent: 0
+  dozeOffEvent: 0
+  goOnlineEvent: 0
+  differenceWinDialogue: {fileID: 0}
+  differenceLoseDialogue: {fileID: 0}
+  startBackground: {fileID: 11400000, guid: 3134e616fb3e78c40b88a2d55bd1c67b, type: 2}
   endBackground: {fileID: 0}

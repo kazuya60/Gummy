@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
+  m_Name: April_1_Interact_Lose_1
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: ....
+  - character: {fileID: 11400000, guid: 88c561243de007948a67c2a6a935cf2d, type: 2}
+    ActorDialogue: Umm?
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: Oh no! Vee is having a breakdown!
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: "Oh no! Vee\u2019s Social Standing meter went down!"
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: "Failing or rejecting social interactions aren\u2019t beneficial
+      to Vee\u2019s Social Standing"
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: If you want to raise it you have to perform well socially!
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: There is no room for mistakes!
+  interactDialogue: {fileID: 0}
+  interactEvent: 0
+  rejectDialogue: {fileID: 0}
+  rejectEvent: 0
+  nextDialogue: {fileID: 11400000, guid: 8a7146ee3a586ca4fb3fb039b46eec8a, type: 2}
+  startEvent: 0
+  endEvent: 0
+  phoneDialogue: {fileID: 0}
+  doomScrollEvent: 0
+  dozeOffEvent: 0
+  goOnlineEvent: 0
+  differenceWinDialogue: {fileID: 0}
+  differenceLoseDialogue: {fileID: 0}
+  startBackground: {fileID: 0}
+  endBackground: {fileID: 11400000, guid: 3134e616fb3e78c40b88a2d55bd1c67b, type: 2}

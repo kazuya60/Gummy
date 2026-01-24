@@ -10,28 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
-  m_Name: April_1_Reject_1
+  m_Name: Gummy_0
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
-    ActorDialogue: how do you reject politely...
-  - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
-    ActorDialogue: .... um.... no, sorry!
-  - character: {fileID: 11400000, guid: 88c561243de007948a67c2a6a935cf2d, type: 2}
-    ActorDialogue: "Oh, okay. That\u2019s fine."
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: "Oh no! Vee\u2019s Social Standing meter went down!"
+    ActorDialogue: Oh no! Vee is already off to a bad start by sleeping in class!
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: "Failing or rejecting social interactions aren\u2019t beneficial
-      to Vee\u2019s Social Standing"
+    ActorDialogue: "It\u2019s okay tho!"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: If you want to raise it you have to perform well socially!
+    ActorDialogue: "To wake her up, let\u2019s give her something to do!"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: There is no room for mistakes!
+    ActorDialogue: On the right of the screen there are 3 bars!
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: There is a good thing, however!
+    ActorDialogue: The Social Standing Meter determines your final score
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: "Vee\u2019s Social Anxiety meter did not go up!"
+    ActorDialogue: This meter fills up whenever you successfully interact with others
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: Try interacting with someone!
   interactDialogue: {fileID: 0}
   interactEvent: 0
   rejectDialogue: {fileID: 0}
@@ -39,5 +34,11 @@ MonoBehaviour:
   nextDialogue: {fileID: 0}
   startEvent: 0
   endEvent: 0
-  startBackground: {fileID: 0}
-  endBackground: {fileID: 0}
+  phoneDialogue: {fileID: 11400000, guid: c1448bbbe76fba645bf5266e92f9b52b, type: 2}
+  doomScrollEvent: 0
+  dozeOffEvent: 0
+  goOnlineEvent: 0
+  differenceWinDialogue: {fileID: 0}
+  differenceLoseDialogue: {fileID: 0}
+  startBackground: {fileID: 11400000, guid: d3ae3715fd30ea74fbe60cf44124af4e, type: 2}
+  endBackground: {fileID: 11400000, guid: 3134e616fb3e78c40b88a2d55bd1c67b, type: 2}

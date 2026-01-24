@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Teacher_1_Interact_Win_1
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
     ActorDialogue: I th-think this is it
   - character: {fileID: 11400000, guid: b549721febc29dd41af545a407ab1eea, type: 2}
     ActorDialogue: Well done, Vee
@@ -31,5 +31,11 @@ MonoBehaviour:
   nextDialogue: {fileID: 11400000, guid: e099a7a8da9cb9a4a8c36970cf1a3fbb, type: 2}
   startEvent: 0
   endEvent: 0
-  startBackground: {fileID: 0}
-  endBackground: {fileID: 0}
+  phoneDialogue: {fileID: 0}
+  doomScrollEvent: 0
+  dozeOffEvent: 0
+  goOnlineEvent: 0
+  differenceWinDialogue: {fileID: 0}
+  differenceLoseDialogue: {fileID: 0}
+  startBackground: {fileID: 11400000, guid: 7737e508d6e10aa4999892ba2ecccd79, type: 2}
+  endBackground: {fileID: 11400000, guid: 7737e508d6e10aa4999892ba2ecccd79, type: 2}

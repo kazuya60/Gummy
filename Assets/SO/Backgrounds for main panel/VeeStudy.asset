@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7560ec73080478a41b42a8b1be9cdcf3, type: 3}
   m_Name: VeeStudy
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: d1bceebba7e189f43aaad51d0159e393, type: 3}
+  sprite: {fileID: 21300000, guid: dc212027c6ed3354381395a060c9d3b4, type: 3}

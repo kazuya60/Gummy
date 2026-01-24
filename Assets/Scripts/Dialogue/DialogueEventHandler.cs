@@ -11,9 +11,10 @@ private GameObject activeSpotDifference;
 private List<int> unusedIndices = new List<int>();
 
 
+
     public GameObject dialogueCanvas;
-    public DialogueSO successDialogue;
-    public DialogueSO failureDialogue;
+    private DialogueSO minigameSourceDialogue;
+
     [Header("Background Controller")]
     public BackgroundController backgroundController;
     private Dictionary<DialogueEventType, Action> dialogueEvents;
@@ -39,22 +40,26 @@ private void RefillPool()
 }
 
     public void FindDifferenceFailure()
-    {
-        if (failureDialogue != null)
-        {
-            EndSpotDifference();
-            DialogueManager.Instance.StartDialogue(failureDialogue);
-        }
-    }
+{
+    EndSpotDifference();
+
+    var src = minigameSourceDialogue;
+
+    if (src != null && src.differenceLoseDialogue != null)
+        DialogueManager.Instance.StartDialogue(src.differenceLoseDialogue);
+}
+
 
     public void FindDifferenceSuccess()
-    {
-        if (successDialogue != null)
-        {
-            EndSpotDifference();
-            DialogueManager.Instance.StartDialogue(successDialogue);
-        }
-    }
+{
+    EndSpotDifference();
+
+    var src = minigameSourceDialogue;
+
+    if (src != null && src.differenceWinDialogue != null)
+        DialogueManager.Instance.StartDialogue(src.differenceWinDialogue);
+}
+
 
     public void TriggerEvent(DialogueEventType eventType)
     {
@@ -74,6 +79,8 @@ private void RefillPool()
 
     public void StartSpotDifference()
 {
+    minigameSourceDialogue = DialogueManager.Instance.CurrentDialogue;
+    
     if (activeSpotDifference != null)
         Destroy(activeSpotDifference);
 

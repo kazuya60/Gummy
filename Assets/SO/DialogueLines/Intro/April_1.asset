@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: April_1
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
     ActorDialogue: U-ummmm
   - character: {fileID: 11400000, guid: 88c561243de007948a67c2a6a935cf2d, type: 2}
     ActorDialogue: Oh Vee! I was just about to tell you something
@@ -26,11 +26,17 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 88c561243de007948a67c2a6a935cf2d, type: 2}
     ActorDialogue: So I have a favor to ask of you!
   interactDialogue: {fileID: 0}
-  interactEvent: 0
-  rejectDialogue: {fileID: 0}
+  interactEvent: 1
+  rejectDialogue: {fileID: 11400000, guid: a64844d85c59e7943846f7686f003d02, type: 2}
   rejectEvent: 0
   nextDialogue: {fileID: 0}
   startEvent: 0
   endEvent: 0
-  startBackground: {fileID: 0}
+  phoneDialogue: {fileID: 0}
+  doomScrollEvent: 0
+  dozeOffEvent: 0
+  goOnlineEvent: 0
+  differenceWinDialogue: {fileID: 11400000, guid: 5e27f1f7fbb4c7a4a826c71de5793b05, type: 2}
+  differenceLoseDialogue: {fileID: 11400000, guid: 105515f1ba87b984381cf2d002c1bf9b, type: 2}
+  startBackground: {fileID: 11400000, guid: 7737e508d6e10aa4999892ba2ecccd79, type: 2}
   endBackground: {fileID: 0}
