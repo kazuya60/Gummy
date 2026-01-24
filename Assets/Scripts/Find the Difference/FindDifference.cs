@@ -27,8 +27,8 @@ public class FindDifference : MonoBehaviour
     public GameObject wrongIconPrefab;
 
     [Header("Dialogue Events")]
-public DialogueEventType successEvent;
-public DialogueEventType failureEvent;
+private DialogueEventType successEvent;
+private DialogueEventType failureEvent;
 
 
 
@@ -36,6 +36,8 @@ public DialogueEventType failureEvent;
 
     void Start()
     {
+        successEvent = DialogueEventType.DifferenceSuccess;
+        failureEvent = DialogueEventType.DifferenceFailure;
         totalDifferences = differencesParent.childCount;
         UpdateChancesUI();
 
