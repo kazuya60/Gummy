@@ -14,6 +14,7 @@ private List<int> unusedIndices = new List<int>();
 
     public GameObject dialogueCanvas;
     private DialogueSO minigameSourceDialogue;
+    public GameObject characterSpritesParent;
 
     [Header("Background Controller")]
     public BackgroundController backgroundController;
@@ -26,11 +27,18 @@ private List<int> unusedIndices = new List<int>();
         { DialogueEventType.StartSpotDifference, StartSpotDifference },
         { DialogueEventType.EndSpotDifference, EndSpotDifference },
         { DialogueEventType.DifferenceSuccess, () => FindDifferenceSuccess() },
-        { DialogueEventType.DifferenceFailure, () => FindDifferenceFailure() }
+        { DialogueEventType.DifferenceFailure, () => FindDifferenceFailure() },
+        { DialogueEventType.ActivateCharacterSprites, () => SetCharacterSpritesActive(true) },
+        { DialogueEventType.DeactivateCharacterSprites, () => SetCharacterSpritesActive(false) }
     };
 
     RefillPool();
 }
+
+    private void SetCharacterSpritesActive(bool active)
+    {
+        characterSpritesParent.SetActive(active);
+    }
 
 private void RefillPool()
 {

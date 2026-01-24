@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class StatBar : MonoBehaviour
 {
-    [SerializeField] private Image fillImage;
+    private Image fillImage;
 
     [Range(0f, 1f)]
     [SerializeField] private float value;
@@ -12,6 +12,7 @@ public class StatBar : MonoBehaviour
 
     private void Awake()
     {
+        fillImage = GetComponent<Image>();
         if (fillImage == null)
             fillImage = GetComponent<Image>();
 

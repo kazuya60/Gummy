@@ -5,4 +5,6 @@ public enum DialogueEventType
     EndSpotDifference,
     DifferenceSuccess,
     DifferenceFailure,
+    ActivateCharacterSprites,
+    DeactivateCharacterSprites
 }

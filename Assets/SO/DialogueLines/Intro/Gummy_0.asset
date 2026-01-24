@@ -32,8 +32,8 @@ MonoBehaviour:
   rejectDialogue: {fileID: 0}
   rejectEvent: 0
   nextDialogue: {fileID: 0}
-  startEvent: 0
-  endEvent: 0
+  startEvent: 6
+  endEvent: 5
   phoneDialogue: {fileID: 11400000, guid: c1448bbbe76fba645bf5266e92f9b52b, type: 2}
   doomScrollEvent: 0
   dozeOffEvent: 0
