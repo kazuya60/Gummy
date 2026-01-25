@@ -265,55 +265,61 @@ void ResolvePhoneChoice(GlobalActionType action)
 
 
 
-    public void ForceReject()
-    {
-        // Safety: only reject when a decision is actually active
-        if (!decisionPanel.activeSelf)
-            return;
-
-        decisionPanel.SetActive(false);
-
-        // Fire reject event
-        if (currentDialogue.rejectEvent != DialogueEventType.None)
-        {
-            dialogueEventHandler.TriggerEvent(currentDialogue.rejectEvent);
-        }
-
-        // Continue reject dialogue if assigned
-        if (currentDialogue.rejectDialogue != null)
-        {
-            StartDialogue(currentDialogue.rejectDialogue);
-        }
-        else
-        {
-            EndDialogue();
-        }
-    }
 
     public void ForceInteract()
+{
+    if (!decisionPanel.activeSelf)
+        return;
+
+    decisionPanel.SetActive(false);
+
+    // Apply stats FIRST
+    StatManager.Instance.ApplyDelta(currentDialogue.interactStats);
+
+    // Fire narrative event
+    if (currentDialogue.interactEvent != DialogueEventType.None)
     {
-        // Safety: only interact when a decision is actually active
-        if (!decisionPanel.activeSelf)
-            return;
-
-        decisionPanel.SetActive(false);
-
-        // Fire interact event
-        if (currentDialogue.interactEvent != DialogueEventType.None)
-        {
-            dialogueEventHandler.TriggerEvent(currentDialogue.interactEvent);
-        }
-
-        // Continue interact dialogue if assigned
-        if (currentDialogue.interactDialogue != null)
-        {
-            StartDialogue(currentDialogue.interactDialogue);
-        }
-        else
-        {
-            EndDialogue();
-        }
+        dialogueEventHandler.TriggerEvent(currentDialogue.interactEvent);
     }
+
+    // Continue interact dialogue if assigned
+    if (currentDialogue.interactDialogue != null)
+    {
+        StartDialogue(currentDialogue.interactDialogue);
+    }
+    else
+    {
+        EndDialogue();
+    }
+}
+
+    public void ForceReject()
+{
+    if (!decisionPanel.activeSelf)
+        return;
+
+    decisionPanel.SetActive(false);
+
+    // Apply stats FIRST
+    StatManager.Instance.ApplyDelta(currentDialogue.rejectStats);
+
+    // Fire narrative event
+    if (currentDialogue.rejectEvent != DialogueEventType.None)
+    {
+        dialogueEventHandler.TriggerEvent(currentDialogue.rejectEvent);
+    }
+
+    // Continue reject dialogue if assigned
+    if (currentDialogue.rejectDialogue != null)
+    {
+        StartDialogue(currentDialogue.rejectDialogue);
+    }
+    else
+    {
+        EndDialogue();
+    }
+}
+
 
 
 

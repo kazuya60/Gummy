@@ -51,4 +51,12 @@ public class StatManager : MonoBehaviour
     {
         DialogueManager.Instance.StartDialogue(gummyGameOverDialogue);
     }
+
+    public void ApplyDelta(DialogueSO.StatDelta delta)
+{
+    AddSocialStanding(delta.socialStanding);
+    AddSocialAnxiety(delta.socialAnxiety);
+    AddGummy(delta.gummy);
+}
+
 }

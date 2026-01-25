@@ -15,6 +15,21 @@ public class DialogueSO : ScriptableObject
     public DialogueSO rejectDialogue;
     public DialogueEventType rejectEvent;
 
+    [System.Serializable]
+public struct StatDelta
+{
+    public int socialStanding;
+    public int socialAnxiety;
+    public int gummy;
+}
+
+[Header("Interact Stat Change")]
+public StatDelta interactStats;
+
+[Header("Reject Stat Change")]
+public StatDelta rejectStats;
+
+
 
     [Header("Automatic continuation (no choices)")]
     public DialogueSO nextDialogue;
@@ -34,6 +49,8 @@ public class DialogueSO : ScriptableObject
     [Header("Background")]
     public BackgroundSO startBackground;
     public BackgroundSO endBackground;
+
+    
 
 
 
