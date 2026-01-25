@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
+  m_Name: April_2_Interact_1
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
+    ActorDialogue: oh ummmm, yea? What is it?
+  - character: {fileID: 11400000, guid: 88c561243de007948a67c2a6a935cf2d, type: 2}
+    ActorDialogue: "There\u2019s this club me and a few students are starting"
+  - character: {fileID: 11400000, guid: 88c561243de007948a67c2a6a935cf2d, type: 2}
+    ActorDialogue: The first ever meeting is happening in a nearby classroom
+  - character: {fileID: 11400000, guid: 88c561243de007948a67c2a6a935cf2d, type: 2}
+    ActorDialogue: "Here\u2019s the flyer, it has the secret password. You can\u2019t
+      enter the clubroom without it"
+  - character: {fileID: 11400000, guid: 88c561243de007948a67c2a6a935cf2d, type: 2}
+    ActorDialogue: "Treat this as your invitation. Don\u2019t lose it!"
+  - character: {fileID: 11400000, guid: 88c561243de007948a67c2a6a935cf2d, type: 2}
+    ActorDialogue: "If you\u2019d like to join, please stop by!"
+  - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
+    ActorDialogue: Ermm
+  - character: {fileID: 11400000, guid: 541f367dbda5370428c9f8a478ac084b, type: 2}
+    ActorDialogue: April hands Vee a flyer and speeds off happily
+  interactDialogue: {fileID: 0}
+  interactEvent: 0
+  rejectDialogue: {fileID: 0}
+  rejectEvent: 0
+  interactStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
+  rejectStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
+  nextDialogue: {fileID: 0}
+  startEvent: 0
+  endEvent: 0
+  phoneDialogue: {fileID: 0}
+  differenceWinDialogue: {fileID: 0}
+  differenceLoseDialogue: {fileID: 0}
+  winStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
+  loseStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
+  startBackground: {fileID: 0}
+  endBackground: {fileID: 0}
