@@ -1169,6 +1169,7 @@ MonoBehaviour:
   introPanel: {fileID: 1953051552}
   charName: {fileID: 194293747}
   charDialogue: {fileID: 346039879}
+  nameplateRoot: {fileID: 1110161550}
   charSprite: {fileID: 779883326}
   gameplayUICanvas: {fileID: 40542826}
   backgroundController: {fileID: 1354149690}

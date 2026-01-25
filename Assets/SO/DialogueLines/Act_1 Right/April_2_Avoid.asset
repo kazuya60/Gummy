@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
   m_Name: April_2_Avoid
   m_EditorClassIdentifier: 
-  dialogueSegments: []
+  dialogueSegments:
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: Vee did in fact regret this interaction. Zoning out...
   interactDialogue: {fileID: 0}
   interactEvent: 0
   rejectDialogue: {fileID: 0}

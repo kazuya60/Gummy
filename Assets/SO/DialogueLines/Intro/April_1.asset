@@ -29,11 +29,27 @@ MonoBehaviour:
   interactEvent: 1
   rejectDialogue: {fileID: 11400000, guid: a64844d85c59e7943846f7686f003d02, type: 2}
   rejectEvent: 0
+  interactStats:
+    socialStanding: 0
+    socialAnxiety: 5
+    gummy: 0
+  rejectStats:
+    socialStanding: -5
+    socialAnxiety: -5
+    gummy: 0
   nextDialogue: {fileID: 0}
   startEvent: 0
   endEvent: 0
   phoneDialogue: {fileID: 11400000, guid: 492ebe68ff2cb6b419474d8d70c0da51, type: 2}
   differenceWinDialogue: {fileID: 11400000, guid: 5e27f1f7fbb4c7a4a826c71de5793b05, type: 2}
   differenceLoseDialogue: {fileID: 11400000, guid: 105515f1ba87b984381cf2d002c1bf9b, type: 2}
+  winStats:
+    socialStanding: 5
+    socialAnxiety: 0
+    gummy: 0
+  loseStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
   startBackground: {fileID: 11400000, guid: 7737e508d6e10aa4999892ba2ecccd79, type: 2}
   endBackground: {fileID: 0}

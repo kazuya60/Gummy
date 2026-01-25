@@ -13,29 +13,41 @@ MonoBehaviour:
   m_Name: Teacher_1_Interact_Win_1
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+  - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
     ActorDialogue: I th-think this is it
   - character: {fileID: 11400000, guid: b549721febc29dd41af545a407ab1eea, type: 2}
     ActorDialogue: Well done, Vee
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
     ActorDialogue: But have you noticed something else?
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
-    ActorDialogue: "Yippee! Vee\u2019s Social Standing meter went up!Yippee! Vee\u2019s
-      Social Standing meter went up!"
+    ActorDialogue: "Yippee! Vee\u2019s Social Standing meter went up!"
   - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
     ActorDialogue: But have you noticed something else?
   interactDialogue: {fileID: 0}
   interactEvent: 0
   rejectDialogue: {fileID: 0}
   rejectEvent: 0
+  interactStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
+  rejectStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
   nextDialogue: {fileID: 11400000, guid: e099a7a8da9cb9a4a8c36970cf1a3fbb, type: 2}
   startEvent: 0
   endEvent: 0
   phoneDialogue: {fileID: 0}
-  doomScrollEvent: 0
-  dozeOffEvent: 0
-  goOnlineEvent: 0
   differenceWinDialogue: {fileID: 0}
   differenceLoseDialogue: {fileID: 0}
+  winStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
+  loseStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
   startBackground: {fileID: 11400000, guid: 7737e508d6e10aa4999892ba2ecccd79, type: 2}
   endBackground: {fileID: 11400000, guid: 7737e508d6e10aa4999892ba2ecccd79, type: 2}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: April_1_Reject_1
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+  - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
     ActorDialogue: how do you reject politely...
   - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
     ActorDialogue: .... um.... no, sorry!
@@ -36,14 +36,27 @@ MonoBehaviour:
   interactEvent: 0
   rejectDialogue: {fileID: 0}
   rejectEvent: 0
+  interactStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
+  rejectStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
   nextDialogue: {fileID: 11400000, guid: 48cf31acb5540784981b69795e83dc47, type: 2}
   startEvent: 0
   endEvent: 0
   phoneDialogue: {fileID: 0}
-  doomScrollEvent: 0
-  dozeOffEvent: 0
-  goOnlineEvent: 0
   differenceWinDialogue: {fileID: 0}
   differenceLoseDialogue: {fileID: 0}
+  winStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
+  loseStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
   startBackground: {fileID: 0}
   endBackground: {fileID: 11400000, guid: 3134e616fb3e78c40b88a2d55bd1c67b, type: 2}

@@ -15,7 +15,7 @@ MonoBehaviour:
   dialogueSegments:
   - character: {fileID: 11400000, guid: b549721febc29dd41af545a407ab1eea, type: 2}
     ActorDialogue: Hmm... Vee?
-  - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
+  - character: {fileID: 11400000, guid: 541f367dbda5370428c9f8a478ac084b, type: 2}
     ActorDialogue: Vee jolts awake.
   - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
     ActorDialogue: huh?!
@@ -25,14 +25,27 @@ MonoBehaviour:
   interactEvent: 1
   rejectDialogue: {fileID: 11400000, guid: 9bda1c1d935ecab44998573811b2f5a9, type: 2}
   rejectEvent: 0
+  interactStats:
+    socialStanding: 0
+    socialAnxiety: 5
+    gummy: 0
+  rejectStats:
+    socialStanding: -5
+    socialAnxiety: -5
+    gummy: 0
   nextDialogue: {fileID: 0}
   startEvent: 0
   endEvent: 0
   phoneDialogue: {fileID: 11400000, guid: 2f34c036c04713640ba72890defdadc7, type: 2}
-  doomScrollEvent: 0
-  dozeOffEvent: 0
-  goOnlineEvent: 0
   differenceWinDialogue: {fileID: 11400000, guid: a3a8d2e289f09b84f92dbb3393faa2cc, type: 2}
   differenceLoseDialogue: {fileID: 11400000, guid: d859b38c94a84ea40a4ff4c2247b811a, type: 2}
+  winStats:
+    socialStanding: 5
+    socialAnxiety: 0
+    gummy: 0
+  loseStats:
+    socialStanding: -5
+    socialAnxiety: 5
+    gummy: 0
   startBackground: {fileID: 11400000, guid: beaf3c2975a24b542ada09da704587dc, type: 2}
   endBackground: {fileID: 11400000, guid: 3134e616fb3e78c40b88a2d55bd1c67b, type: 2}
