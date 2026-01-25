@@ -91,25 +91,37 @@ public class DialogueEventHandler : MonoBehaviour
     }
 
     public void FindDifferenceFailure()
+{
+    EndSpotDifference();
+
+    var src = minigameSourceDialogue;
+
+    if (src != null)
     {
-        EndSpotDifference();
+        StatManager.Instance.ApplyDelta(src.loseStats);
 
-        var src = minigameSourceDialogue;
-
-        if (src != null && src.differenceLoseDialogue != null)
+        if (src.differenceLoseDialogue != null)
             DialogueManager.Instance.StartDialogue(src.differenceLoseDialogue);
     }
+}
+
 
 
     public void FindDifferenceSuccess()
+{
+    EndSpotDifference();
+
+    var src = minigameSourceDialogue;
+
+    if (src != null)
     {
-        EndSpotDifference();
+        StatManager.Instance.ApplyDelta(src.winStats);
 
-        var src = minigameSourceDialogue;
-
-        if (src != null && src.differenceWinDialogue != null)
+        if (src.differenceWinDialogue != null)
             DialogueManager.Instance.StartDialogue(src.differenceWinDialogue);
     }
+}
+
 
 
     public void TriggerEvent(DialogueEventType eventType)

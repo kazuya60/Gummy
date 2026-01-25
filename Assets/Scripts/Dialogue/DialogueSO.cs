@@ -43,6 +43,11 @@ public StatDelta rejectStats;
     [Header("Minigame Outcomes")]
     public DialogueSO differenceWinDialogue;
     public DialogueSO differenceLoseDialogue;
+    
+    [Header("Minigame Stat Changes")]
+public StatDelta winStats;
+public StatDelta loseStats;
+
 
 
 
