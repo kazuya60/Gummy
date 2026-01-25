@@ -3,25 +3,31 @@ using UnityEngine.UI;
 
 public class StatBar : MonoBehaviour
 {
-    private Image fillImage;
+    [SerializeField] private Image fillImage;
 
-    [Range(0f, 1f)]
-    [SerializeField] private float value;
+    [SerializeField] private int maxValue = 25;
+    [SerializeField] private int currentValue;
 
-    public float Value => value;
+    public int Current => currentValue;
+    public int Max => maxValue;
 
     private void Awake()
     {
-        fillImage = GetComponent<Image>();
+        
         if (fillImage == null)
             fillImage = GetComponent<Image>();
 
-        SetValue(value);
+        SetValue(currentValue);
     }
 
-    public void SetValue(float newValue)
+    public void SetValue(int value)
     {
-        value = Mathf.Clamp01(newValue);
-        fillImage.fillAmount = value;
+        currentValue = Mathf.Clamp(value, 0, maxValue);
+        fillImage.fillAmount = (float)currentValue / maxValue;
+    }
+
+    public void Modify(int delta)
+    {
+        SetValue(currentValue + delta);
     }
 }

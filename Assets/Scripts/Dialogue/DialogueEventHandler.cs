@@ -5,10 +5,10 @@ using UnityEngine;
 public class DialogueEventHandler : MonoBehaviour
 {
     [Header("Minigames")]
-public GameObject[] spotDifferencePrefabs;
+    public GameObject[] spotDifferencePrefabs;
 
-private GameObject activeSpotDifference;
-private List<int> unusedIndices = new List<int>();
+    private GameObject activeSpotDifference;
+    private List<int> unusedIndices = new List<int>();
 
 
 
@@ -19,54 +19,97 @@ private List<int> unusedIndices = new List<int>();
     [Header("Background Controller")]
     public BackgroundController backgroundController;
     private Dictionary<DialogueEventType, Action> dialogueEvents;
+    private Dictionary<GlobalActionType, Action> globalActions;
+
 
     private void Awake()
+    {
+        globalActions = new Dictionary<GlobalActionType, Action>
 {
-    dialogueEvents = new Dictionary<DialogueEventType, Action>
+    { GlobalActionType.DoomScroll, OnDoomScroll },
+    { GlobalActionType.GoOnline, OnGoOnline },
+    { GlobalActionType.DozeOff, OnDozeOff }
+};
+
+
+        dialogueEvents = new Dictionary<DialogueEventType, Action>
     {
         { DialogueEventType.StartSpotDifference, StartSpotDifference },
         { DialogueEventType.EndSpotDifference, EndSpotDifference },
         { DialogueEventType.DifferenceSuccess, () => FindDifferenceSuccess() },
         { DialogueEventType.DifferenceFailure, () => FindDifferenceFailure() },
+
         { DialogueEventType.ActivateCharacterSprites, () => SetCharacterSpritesActive(true) },
         { DialogueEventType.DeactivateCharacterSprites, () => SetCharacterSpritesActive(false) }
     };
 
-    RefillPool();
+        RefillPool();
+    }
+
+    void OnDoomScroll()
+    {
+        StatManager.Instance.AddGummy(10);
+        StatManager.Instance.AddSocialAnxiety(-10);
+        Debug.Log("Doom Scrolled");
+    }
+
+    void OnGoOnline()
+    {
+        StatManager.Instance.AddGummy(7);
+        StatManager.Instance.AddSocialAnxiety(-7);
+        Debug.Log("Went Online");
+    }
+
+    void OnDozeOff()
+    {
+        StatManager.Instance.AddGummy(5);
+        StatManager.Instance.AddSocialAnxiety(-5);
+        Debug.Log("Dozed Off");
+    }
+
+    public void TriggerGlobalAction(GlobalActionType action)
+{
+    if (action == GlobalActionType.None)
+        return;
+
+    if (globalActions.TryGetValue(action, out var a))
+        a.Invoke();
 }
+
+
 
     private void SetCharacterSpritesActive(bool active)
     {
         characterSpritesParent.SetActive(active);
     }
 
-private void RefillPool()
-{
-    unusedIndices.Clear();
-    for (int i = 0; i < spotDifferencePrefabs.Length; i++)
-        unusedIndices.Add(i);
-}
+    private void RefillPool()
+    {
+        unusedIndices.Clear();
+        for (int i = 0; i < spotDifferencePrefabs.Length; i++)
+            unusedIndices.Add(i);
+    }
 
     public void FindDifferenceFailure()
-{
-    EndSpotDifference();
+    {
+        EndSpotDifference();
 
-    var src = minigameSourceDialogue;
+        var src = minigameSourceDialogue;
 
-    if (src != null && src.differenceLoseDialogue != null)
-        DialogueManager.Instance.StartDialogue(src.differenceLoseDialogue);
-}
+        if (src != null && src.differenceLoseDialogue != null)
+            DialogueManager.Instance.StartDialogue(src.differenceLoseDialogue);
+    }
 
 
     public void FindDifferenceSuccess()
-{
-    EndSpotDifference();
+    {
+        EndSpotDifference();
 
-    var src = minigameSourceDialogue;
+        var src = minigameSourceDialogue;
 
-    if (src != null && src.differenceWinDialogue != null)
-        DialogueManager.Instance.StartDialogue(src.differenceWinDialogue);
-}
+        if (src != null && src.differenceWinDialogue != null)
+            DialogueManager.Instance.StartDialogue(src.differenceWinDialogue);
+    }
 
 
     public void TriggerEvent(DialogueEventType eventType)
@@ -86,41 +129,41 @@ private void RefillPool()
 
 
     public void StartSpotDifference()
-{
-    minigameSourceDialogue = DialogueManager.Instance.CurrentDialogue;
-    
-    if (activeSpotDifference != null)
-        Destroy(activeSpotDifference);
+    {
+        minigameSourceDialogue = DialogueManager.Instance.CurrentDialogue;
 
-    if (unusedIndices.Count == 0)
-        RefillPool();
+        if (activeSpotDifference != null)
+            Destroy(activeSpotDifference);
 
-    int pick = UnityEngine.Random.Range(0, unusedIndices.Count);
-    int prefabIndex = unusedIndices[pick];
-    unusedIndices.RemoveAt(pick);
+        if (unusedIndices.Count == 0)
+            RefillPool();
 
-    activeSpotDifference = Instantiate(spotDifferencePrefabs[prefabIndex]);
-    activeSpotDifference.SetActive(true);
+        int pick = UnityEngine.Random.Range(0, unusedIndices.Count);
+        int prefabIndex = unusedIndices[pick];
+        unusedIndices.RemoveAt(pick);
 
-    dialogueCanvas.SetActive(false);
-}
+        activeSpotDifference = Instantiate(spotDifferencePrefabs[prefabIndex]);
+        activeSpotDifference.SetActive(true);
 
-
-
-private void EndSpotDifference()
-{
-    if (activeSpotDifference != null)
-        Destroy(activeSpotDifference);
-
-    activeSpotDifference = null;
-    dialogueCanvas.SetActive(true);
-
-    Debug.Log("Spot the Difference ended");
-}
+        dialogueCanvas.SetActive(false);
+    }
 
 
 
+    private void EndSpotDifference()
+    {
+        if (activeSpotDifference != null)
+            Destroy(activeSpotDifference);
+
+        activeSpotDifference = null;
+        dialogueCanvas.SetActive(true);
+
+        Debug.Log("Spot the Difference ended");
+    }
 
 
-    
+
+
+
+
 }

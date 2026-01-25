@@ -32,10 +32,7 @@ MonoBehaviour:
   nextDialogue: {fileID: 0}
   startEvent: 0
   endEvent: 0
-  phoneDialogue: {fileID: 0}
-  doomScrollEvent: 0
-  dozeOffEvent: 0
-  goOnlineEvent: 0
+  phoneDialogue: {fileID: 11400000, guid: 492ebe68ff2cb6b419474d8d70c0da51, type: 2}
   differenceWinDialogue: {fileID: 11400000, guid: 5e27f1f7fbb4c7a4a826c71de5793b05, type: 2}
   differenceLoseDialogue: {fileID: 11400000, guid: 105515f1ba87b984381cf2d002c1bf9b, type: 2}
   startBackground: {fileID: 11400000, guid: 7737e508d6e10aa4999892ba2ecccd79, type: 2}

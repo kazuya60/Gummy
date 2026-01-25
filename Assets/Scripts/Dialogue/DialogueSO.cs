@@ -25,10 +25,6 @@ public class DialogueSO : ScriptableObject
     [Header("Phone Choice (Shared Dialogue)")]
     public DialogueSO phoneDialogue;
 
-    public DialogueEventType doomScrollEvent;
-    public DialogueEventType dozeOffEvent;
-    public DialogueEventType goOnlineEvent;
-
     [Header("Minigame Outcomes")]
     public DialogueSO differenceWinDialogue;
     public DialogueSO differenceLoseDialogue;

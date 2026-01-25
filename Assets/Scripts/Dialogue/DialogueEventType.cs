@@ -8,3 +8,12 @@ public enum DialogueEventType
     ActivateCharacterSprites,
     DeactivateCharacterSprites
 }
+
+public enum GlobalActionType
+{
+    None,
+    DoomScroll,
+    GoOnline,
+    DozeOff
+}
+

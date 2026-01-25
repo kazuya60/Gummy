@@ -15,23 +15,33 @@ public class StatManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        
     }
 
-    public void ModifySocialStanding(float delta)
+    void Start()
     {
-        socialStanding.SetValue(socialStanding.Value + delta);
+        // socialStanding.SetValue(12);
+        // socialAnxiety.SetValue(12);
+        // gummyMeter.SetValue(20);
+        
     }
 
-    public void ModifySocialAnxiety(float delta)
+    public void AddSocialStanding(int amount)
     {
-        socialAnxiety.SetValue(socialAnxiety.Value + delta);
+        socialStanding.Modify(amount);
     }
 
-    public void ModifyGummy(float delta)
+    public void AddSocialAnxiety(int amount)
     {
-        gummyMeter.SetValue(gummyMeter.Value + delta);
+        socialAnxiety.Modify(amount);
+    }
 
-        if (gummyMeter.Value >= 1f)
+    public void AddGummy(int amount)
+    {
+        gummyMeter.Modify(amount);
+
+        if (gummyMeter.Current >= gummyMeter.Max)
         {
             TriggerGummyGameOver();
         }

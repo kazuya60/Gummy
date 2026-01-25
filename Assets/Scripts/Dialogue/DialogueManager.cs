@@ -203,16 +203,10 @@ rejectButton.onClick.AddListener(ForceReject);
 
   void ApplyPhoneChoicesFromDialogue(DialogueSO dialogue)
 {
-    // Debug.Log("Applying phone choices: " + dialogue.name);
-
-    bool enable =
-        dialogue.phoneDialogue != null ||
-        dialogue.doomScrollEvent != DialogueEventType.None ||
-        dialogue.dozeOffEvent != DialogueEventType.None ||
-        dialogue.goOnlineEvent != DialogueEventType.None;
-
+    bool enable = dialogue.phoneDialogue != null;
     SetPhoneButtonsInteractable(enable);
 }
+
 
 
 
@@ -230,33 +224,44 @@ rejectButton.onClick.AddListener(ForceReject);
 {
     if (!phoneChoicesActive) return;
 
-    ResolvePhoneChoice(currentDialogue.doomScrollEvent);
+    ResolvePhoneChoice(GlobalActionType.DoomScroll);
 }
 
 public void OnDozeOff()
 {
     if (!phoneChoicesActive) return;
 
-    ResolvePhoneChoice(currentDialogue.dozeOffEvent);
+    ResolvePhoneChoice(GlobalActionType.DozeOff);
 }
 
 public void OnGoOnline()
 {
     if (!phoneChoicesActive) return;
 
-    ResolvePhoneChoice(currentDialogue.goOnlineEvent);
+    ResolvePhoneChoice(GlobalActionType.GoOnline);
 }
 
-void ResolvePhoneChoice(DialogueEventType evt)
+void ResolvePhoneChoice(GlobalActionType action)
 {
+    // Hide interact/reject if it is open
+    if (decisionPanel.activeSelf)
+        decisionPanel.SetActive(false);
+
+    // Disable phone buttons immediately
     SetPhoneButtonsInteractable(false);
 
-    if (evt != DialogueEventType.None)
-        dialogueEventHandler.TriggerEvent(evt);
+    // Fire global event
+    if (action != GlobalActionType.None)
+    dialogueEventHandler.TriggerGlobalAction(action);
 
+
+    // Continue into phone dialogue
     if (currentDialogue.phoneDialogue != null)
         StartDialogue(currentDialogue.phoneDialogue);
+    else
+        EndDialogue();
 }
+
 
 
 
