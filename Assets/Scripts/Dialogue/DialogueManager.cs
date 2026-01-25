@@ -11,6 +11,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject introPanel;
     public TextMeshProUGUI charName;
     public TextMeshProUGUI charDialogue;
+    public GameObject nameplateRoot;
+
     public Image charSprite;
     public CanvasGroup gameplayUICanvas;
     public BackgroundController backgroundController;
@@ -117,22 +119,38 @@ SetPhoneButtonsInteractable(false);
     }
 
     private void ShowLine()
+{
+    var line = segments[index];
+
+    bool hasName =
+        line.character != null &&
+        !string.IsNullOrEmpty(line.character.CharacterName);
+
+    if (hasName)
     {
-        var line = segments[index];
-
+        nameplateRoot.SetActive(true);
         charName.text = line.character.CharacterName;
-        charDialogue.text = line.ActorDialogue;
-
-        if (line.character.CharacterSprite != null)
-        {
-            charSprite.gameObject.SetActive(true);
-            charSprite.sprite = line.character.CharacterSprite;
-        }
-        else
-        {
-            charSprite.gameObject.SetActive(false);
-        }
     }
+    else
+    {
+        nameplateRoot.SetActive(false);
+        charName.text = "";
+    }
+
+    if (line.character != null &&
+        line.character.CharacterSprite != null)
+    {
+        charSprite.gameObject.SetActive(true);
+        charSprite.sprite = line.character.CharacterSprite;
+    }
+    else
+    {
+        charSprite.gameObject.SetActive(false);
+    }
+
+    charDialogue.text = line.ActorDialogue;
+}
+
 
 
     private void ShowEndChoicesOrEnd()
