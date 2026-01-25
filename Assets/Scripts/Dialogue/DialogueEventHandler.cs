@@ -25,11 +25,11 @@ public class DialogueEventHandler : MonoBehaviour
     private void Awake()
     {
         globalActions = new Dictionary<GlobalActionType, Action>
-{
-    { GlobalActionType.DoomScroll, OnDoomScroll },
-    { GlobalActionType.GoOnline, OnGoOnline },
-    { GlobalActionType.DozeOff, OnDozeOff }
-};
+    {
+        { GlobalActionType.DoomScroll, OnDoomScroll },
+        { GlobalActionType.GoOnline, OnGoOnline },
+        { GlobalActionType.DozeOff, OnDozeOff }
+    };
 
 
         dialogueEvents = new Dictionary<DialogueEventType, Action>
@@ -68,13 +68,13 @@ public class DialogueEventHandler : MonoBehaviour
     }
 
     public void TriggerGlobalAction(GlobalActionType action)
-{
-    if (action == GlobalActionType.None)
-        return;
+    {
+        if (action == GlobalActionType.None)
+            return;
 
-    if (globalActions.TryGetValue(action, out var a))
-        a.Invoke();
-}
+        if (globalActions.TryGetValue(action, out var a))
+            a.Invoke();
+    }
 
 
 
@@ -91,36 +91,36 @@ public class DialogueEventHandler : MonoBehaviour
     }
 
     public void FindDifferenceFailure()
-{
-    EndSpotDifference();
-
-    var src = minigameSourceDialogue;
-
-    if (src != null)
     {
-        StatManager.Instance.ApplyDelta(src.loseStats);
+        EndSpotDifference();
 
-        if (src.differenceLoseDialogue != null)
-            DialogueManager.Instance.StartDialogue(src.differenceLoseDialogue);
+        var src = minigameSourceDialogue;
+
+        if (src != null)
+        {
+            StatManager.Instance.ApplyDelta(src.loseStats);
+
+            if (src.differenceLoseDialogue != null)
+                DialogueManager.Instance.StartDialogue(src.differenceLoseDialogue);
+        }
     }
-}
 
 
 
     public void FindDifferenceSuccess()
-{
-    EndSpotDifference();
-
-    var src = minigameSourceDialogue;
-
-    if (src != null)
     {
-        StatManager.Instance.ApplyDelta(src.winStats);
+        EndSpotDifference();
 
-        if (src.differenceWinDialogue != null)
-            DialogueManager.Instance.StartDialogue(src.differenceWinDialogue);
+        var src = minigameSourceDialogue;
+
+        if (src != null)
+        {
+            StatManager.Instance.ApplyDelta(src.winStats);
+
+            if (src.differenceWinDialogue != null)
+                DialogueManager.Instance.StartDialogue(src.differenceWinDialogue);
+        }
     }
-}
 
 
 

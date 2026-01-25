@@ -40,8 +40,8 @@ MonoBehaviour:
     socialAnxiety: 0
     gummy: 0
   nextDialogue: {fileID: 0}
-  startEvent: 0
-  endEvent: 0
+  startEvent: 6
+  endEvent: 5
   phoneDialogue: {fileID: 11400000, guid: c1448bbbe76fba645bf5266e92f9b52b, type: 2}
   differenceWinDialogue: {fileID: 0}
   differenceLoseDialogue: {fileID: 0}
