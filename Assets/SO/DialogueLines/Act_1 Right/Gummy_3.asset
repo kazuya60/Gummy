@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d78d3d3e50d0e48994a8b03581b7f5, type: 3}
+  m_Name: Gummy_3
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: "This is Belladonna! She\u2019s basically the school idol!"
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: "She doesn\u2019t seem to have any social fears at all"
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: "And she\u2019s probably rich, at that"
+  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+    ActorDialogue: "It\u2019s no doubt she\u2019s the head of this club!"
+  interactDialogue: {fileID: 0}
+  interactEvent: 0
+  rejectDialogue: {fileID: 0}
+  rejectEvent: 0
+  interactStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
+  rejectStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
+  nextDialogue: {fileID: 0}
+  startEvent: 0
+  endEvent: 0
+  phoneDialogue: {fileID: 0}
+  differenceWinDialogue: {fileID: 0}
+  differenceLoseDialogue: {fileID: 0}
+  winStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
+  loseStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
+  startBackground: {fileID: 0}
+  endBackground: {fileID: 0}
