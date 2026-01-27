@@ -40,7 +40,8 @@ public class DialogueEventHandler : MonoBehaviour
         { DialogueEventType.DifferenceFailure, () => FindDifferenceFailure() },
 
         { DialogueEventType.ActivateCharacterSprites, () => SetCharacterSpritesActive(true) },
-        { DialogueEventType.DeactivateCharacterSprites, () => SetCharacterSpritesActive(false) }
+        { DialogueEventType.DeactivateCharacterSprites, () => SetCharacterSpritesActive(false) },
+        { DialogueEventType.ActivateNavigation, () => DialogueManager.Instance.isNavigationEnabled = true }
     };
 
         RefillPool();

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: April_1
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - character: {fileID: 11400000, guid: d004a099c0bfdc8419582848c247948f, type: 2}
+  - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
     ActorDialogue: U-ummmm
   - character: {fileID: 11400000, guid: 88c561243de007948a67c2a6a935cf2d, type: 2}
     ActorDialogue: Oh Vee! I was just about to tell you something

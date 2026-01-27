@@ -54,4 +54,4 @@ MonoBehaviour:
     socialAnxiety: 0
     gummy: 0
   startBackground: {fileID: 11400000, guid: d3ae3715fd30ea74fbe60cf44124af4e, type: 2}
-  endBackground: {fileID: 11400000, guid: 3134e616fb3e78c40b88a2d55bd1c67b, type: 2}
+  endBackground: {fileID: 0}

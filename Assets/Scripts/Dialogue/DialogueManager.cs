@@ -40,6 +40,8 @@ public Button goOnlineButton;
 
     public DialogueEventHandler dialogueEventHandler;
 
+    public bool isNavigationEnabled = false;
+
     private void Awake()
     {
         Instance = this;
@@ -94,7 +96,8 @@ SetPhoneButtonsInteractable(false);
         
         if (dialogue.startBackground != null)
 {
-    backgroundController.SetBackground(dialogue.startBackground.sprite);
+    backgroundController.SetOverrideBackground(dialogue.startBackground.sprite);
+
 }
 
 
@@ -103,6 +106,8 @@ SetPhoneButtonsInteractable(false);
 
 
         ShowLine();
+        RoomManager.Instance.SetNavigationEnabled(false);
+
     }
 
     public void Next()
@@ -209,14 +214,16 @@ rejectButton.onClick.AddListener(ForceReject);
 
         EndEventStarter();
 
-        if (currentDialogue.endBackground != null)
-{
-    backgroundController.SetBackground(currentDialogue.endBackground.sprite);
-}
+       backgroundController.ClearOverride();
+
 
         ApplyPhoneChoicesFromDialogue(currentDialogue);
 
         SetGameplayUIInteractable(true);
+        if (isNavigationEnabled)
+        {
+        RoomManager.Instance.SetNavigationEnabled(true);
+        }
     }
 
   void ApplyPhoneChoicesFromDialogue(DialogueSO dialogue)

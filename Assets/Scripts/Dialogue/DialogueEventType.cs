@@ -6,7 +6,8 @@ public enum DialogueEventType
     DifferenceSuccess,
     DifferenceFailure,
     ActivateCharacterSprites,
-    DeactivateCharacterSprites
+    DeactivateCharacterSprites,
+    ActivateNavigation
 }
 
 public enum GlobalActionType
