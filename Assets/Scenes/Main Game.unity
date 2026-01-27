@@ -1139,7 +1139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &426070672
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1300,6 +1300,7 @@ MonoBehaviour:
   dozeOffButton: {fileID: 940418784}
   goOnlineButton: {fileID: 808123440}
   dialogueEventHandler: {fileID: 202665310}
+  isNavigationEnabled: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,7 +2081,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -9.759889}
+  m_AnchoredPosition: {x: 0, y: -44}
   m_SizeDelta: {x: 201.2736, y: 294.8558}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &779883326
@@ -3670,7 +3671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1422821187
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3790,7 +3791,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1433941416
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4417,7 +4418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1652790854
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5749,6 +5750,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 98417858}
   - {fileID: 1354149689}
+  - {fileID: 1822701651}
   - {fileID: 1916544861}
   - {fileID: 2067910176}
   - {fileID: 519420032}
@@ -5758,4 +5760,3 @@ SceneRoots:
   - {fileID: 1272883210}
   - {fileID: 1816486328}
   - {fileID: 1636566888}
-  - {fileID: 1822701651}

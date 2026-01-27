@@ -15,6 +15,7 @@ public class RoomManager : MonoBehaviour
     {
         Instance = this;
         EnterRoom(startingRoom);
+        SetNavigationEnabled(false);
     }
 
     public void EnterRoom(RoomSO room)
