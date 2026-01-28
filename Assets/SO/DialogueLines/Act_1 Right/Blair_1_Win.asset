@@ -37,7 +37,7 @@ MonoBehaviour:
     gummy: 0
   nextDialogue: {fileID: 0}
   startEvent: 0
-  endEvent: 0
+  endEvent: 10
   phoneDialogue: {fileID: 0}
   differenceWinDialogue: {fileID: 0}
   differenceLoseDialogue: {fileID: 0}
@@ -49,5 +49,8 @@ MonoBehaviour:
     socialStanding: 0
     socialAnxiety: 0
     gummy: 0
+  activateTask: {fileID: 0}
+  completeTask: {fileID: 0}
+  failTask: {fileID: 0}
   startBackground: {fileID: 0}
   endBackground: {fileID: 0}

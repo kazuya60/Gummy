@@ -48,5 +48,8 @@ MonoBehaviour:
     socialStanding: 0
     socialAnxiety: 0
     gummy: 0
-  startBackground: {fileID: 0}
-  endBackground: {fileID: 0}
+  activateTask: {fileID: 0}
+  completeTask: {fileID: 0}
+  failTask: {fileID: 0}
+  startBackground: {fileID: 11400000, guid: b2888080ba5eb684696c8a57628b91fc, type: 2}
+  endBackground: {fileID: 11400000, guid: b2888080ba5eb684696c8a57628b91fc, type: 2}

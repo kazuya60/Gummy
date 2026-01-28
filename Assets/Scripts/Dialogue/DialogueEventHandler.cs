@@ -15,11 +15,19 @@ public class DialogueEventHandler : MonoBehaviour
     public GameObject dialogueCanvas;
     private DialogueSO minigameSourceDialogue;
     public GameObject characterSpritesParent;
+    public GameObject TeacherCharacter;
+    public GameObject AprilCharacter;
 
     [Header("Background Controller")]
     public BackgroundController backgroundController;
     private Dictionary<DialogueEventType, Action> dialogueEvents;
     private Dictionary<GlobalActionType, Action> globalActions;
+
+    public DialogueSO AprilDialogue;
+    public DialogueSO BelladonnaInteractDialogue;
+    public DialogueSO BelladonnaRejectDialogue;
+    public DialogueSO VeeDialogue;
+    public ChoiceType choiceType;
 
 
     private void Awake()
@@ -36,17 +44,40 @@ public class DialogueEventHandler : MonoBehaviour
     {
         { DialogueEventType.StartSpotDifference, StartSpotDifference },
         { DialogueEventType.EndSpotDifference, EndSpotDifference },
-        { DialogueEventType.DifferenceSuccess, () => FindDifferenceSuccess() },
-        { DialogueEventType.DifferenceFailure, () => FindDifferenceFailure() },
+        { DialogueEventType.DifferenceSuccess, FindDifferenceSuccess },
+        { DialogueEventType.DifferenceFailure, FindDifferenceFailure },
+        { DialogueEventType.StartAprilDialogue, StartAprilDialogue },
+        { DialogueEventType.StartBelladonnaDialogue, StartBelladonnaDialogue },
+        { DialogueEventType.SetChoiceBella1, () => choiceType = ChoiceType.BellaInteract },
+        { DialogueEventType.SetChoiceBella2, () => choiceType = ChoiceType.BellaReject },
+        { DialogueEventType.SetChoiceVee, () => choiceType = ChoiceType.Vee },
 
         { DialogueEventType.ActivateCharacterSprites, () => SetCharacterSpritesActive(true) },
         { DialogueEventType.DeactivateCharacterSprites, () => SetCharacterSpritesActive(false) },
+        { DialogueEventType.DisableBothAprilAndTeacher, DisableBothAprilAndTeacher },
         { DialogueEventType.ActivateNavigation, () => DialogueManager.Instance.isNavigationEnabled = true },
 
         
     };
 
         RefillPool();
+    }
+
+    private void StartAprilDialogue()
+    {
+        DialogueManager.Instance.StartDialogue(AprilDialogue);
+    }
+
+    private void StartBelladonnaDialogue()
+    {
+        if (choiceType == ChoiceType.BellaInteract)
+            DialogueManager.Instance.StartDialogue(BelladonnaInteractDialogue);
+        else if (choiceType == ChoiceType.Vee)
+        {
+            DialogueManager.Instance.StartDialogue(VeeDialogue);
+        }
+        else
+            DialogueManager.Instance.StartDialogue(BelladonnaRejectDialogue);
     }
 
     
@@ -87,6 +118,20 @@ public class DialogueEventHandler : MonoBehaviour
     {
         characterSpritesParent.SetActive(active);
     }
+
+    public void DisableCharacter(GameObject character)
+{
+    character.SetActive(false);
+}
+
+
+    public void DisableBothAprilAndTeacher()
+    {
+        DisableCharacter(TeacherCharacter);
+        DisableCharacter(AprilCharacter);
+        DialogueManager.Instance.isNavigationEnabled = true;
+    }
+
 
     private void RefillPool()
     {

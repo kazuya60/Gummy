@@ -18,9 +18,9 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: b15306cc82830fb43960d60ffe73472d, type: 2}
     ActorDialogue: "I promised April I would meet her later but I\u2019m already
       starting to regret it!"
-  interactDialogue: {fileID: 0}
+  interactDialogue: {fileID: 11400000, guid: 479f4bdac1fbfe24cb9f997cd8dedb26, type: 2}
   interactEvent: 0
-  rejectDialogue: {fileID: 0}
+  rejectDialogue: {fileID: 11400000, guid: e27480f317e7fe04483f17fc75a8d804, type: 2}
   rejectEvent: 0
   interactStats:
     socialStanding: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
   nextDialogue: {fileID: 0}
   startEvent: 0
   endEvent: 0
-  phoneDialogue: {fileID: 0}
+  phoneDialogue: {fileID: 11400000, guid: 9bbdb637daa32c840a4a68d7c7b30f23, type: 2}
   differenceWinDialogue: {fileID: 0}
   differenceLoseDialogue: {fileID: 0}
   winStats:
@@ -44,5 +44,8 @@ MonoBehaviour:
     socialStanding: 0
     socialAnxiety: 0
     gummy: 0
-  startBackground: {fileID: 11400000, guid: 1e903a06d4e3c824482d124b62ffcf45, type: 2}
+  activateTask: {fileID: 0}
+  completeTask: {fileID: 0}
+  failTask: {fileID: 0}
+  startBackground: {fileID: 0}
   endBackground: {fileID: 0}

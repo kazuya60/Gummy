@@ -10,6 +10,14 @@ public class MethodData : MonoBehaviour
         DialogueManager.Instance.StartDialogue(gummyStarterDialogue);
     }
 
+    public DialogueSO veeDialogue;
+    public void VeeDialogue()
+    {
+        DialogueManager.Instance.StartDialogue(veeDialogue);
+    }
+
+
+
     
     
     // public void GoOnline()

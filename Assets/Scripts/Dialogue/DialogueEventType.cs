@@ -7,6 +7,12 @@ public enum DialogueEventType
     DifferenceFailure,
     ActivateCharacterSprites,
     DeactivateCharacterSprites,
+    DisableBothAprilAndTeacher,
+    StartAprilDialogue,
+    StartBelladonnaDialogue,
+    SetChoiceBella1,
+    SetChoiceBella2,
+    SetChoiceVee,
     ActivateNavigation
 }
 

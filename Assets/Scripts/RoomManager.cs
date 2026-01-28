@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomManager : MonoBehaviour
@@ -8,8 +9,12 @@ public class RoomManager : MonoBehaviour
     private RoomSO currentRoom;
 
     public BackgroundController backgroundController;
+    public static System.Action<RoomSO> OnRoomChanged;
+
 
     public ArrowUI arrows;
+    private HashSet<RoomSO> roomsWithTriggeredEnterEvent = new();
+
 
     private void Awake()
     {
@@ -20,12 +25,6 @@ public class RoomManager : MonoBehaviour
 
     public void EnterRoom(RoomSO room)
 {
-    if (room.completeTaskOnEnter != null)
-    TaskManager.Instance.CompleteTask(room.completeTaskOnEnter);
-
-if (room.failTaskOnEnter != null)
-    TaskManager.Instance.FailTask(room.failTaskOnEnter);
-
     if (currentRoom != null &&
         currentRoom.onExitEvent != DialogueEventType.None)
     {
@@ -34,17 +33,23 @@ if (room.failTaskOnEnter != null)
     }
 
     currentRoom = room;
+    OnRoomChanged?.Invoke(room);
+
 
     backgroundController.SetRoomBackground(room.roomBackground);
-
     arrows.Refresh(room);
 
-    if (room.onEnterEvent != DialogueEventType.None)
+    // FIRE ONCE ONLY
+    if (room.onEnterEvent != DialogueEventType.None &&
+        !roomsWithTriggeredEnterEvent.Contains(room))
     {
+        roomsWithTriggeredEnterEvent.Add(room);
+
         DialogueManager.Instance.dialogueEventHandler
             .TriggerEvent(room.onEnterEvent);
     }
 }
+
 
 
     public RoomSO CurrentRoom => currentRoom;

@@ -544,7 +544,14 @@ MonoBehaviour:
   - {fileID: 5951837531557903419, guid: b552bbc3096ef98419c48b33b5a25ad4, type: 3}
   dialogueCanvas: {fileID: 1272883206}
   characterSpritesParent: {fileID: 40542824}
+  TeacherCharacter: {fileID: 1500469000}
+  AprilCharacter: {fileID: 367345263}
   backgroundController: {fileID: 1354149690}
+  AprilDialogue: {fileID: 11400000, guid: a0501bc85b35b8647b91aa5f53a88ec6, type: 2}
+  BelladonnaInteractDialogue: {fileID: 11400000, guid: 6f2bd8c3614e3ae4c8768d65965db529, type: 2}
+  BelladonnaRejectDialogue: {fileID: 11400000, guid: 2daf2f0f7237134429237b4af1aa82eb, type: 2}
+  VeeDialogue: {fileID: 11400000, guid: b0973ec475fcfe94180637e615bd466e, type: 2}
+  choiceType: 0
 --- !u!1 &210250656
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,7 +2118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &779883325
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2613,6 +2620,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963628897}
   m_CullTransparentMesh: 1
+--- !u!1 &995959752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995959754}
+  - component: {fileID: 995959753}
+  m_Layer: 0
+  m_Name: RoomTaskTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &995959753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995959752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594b28ae2b0cffb44b0cfaf094e5b321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visibleInRoom: {fileID: 11400000, guid: 45b16c915703b204893d2151c3904b47, type: 2}
+  requiredTask: {fileID: 11400000, guid: fef6fe8f7f5b9e24fb828220c6274446, type: 2}
+  visualRoot: {fileID: 1868669089}
+--- !u!4 &995959754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995959752}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 873.31903, y: 658.78937, z: -5.0003104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1039417045
 GameObject:
   m_ObjectHideFlags: 0
@@ -4558,6 +4612,7 @@ RectTransform:
   - {fileID: 1422821187}
   - {fileID: 426070672}
   - {fileID: 1652790854}
+  - {fileID: 1868669090}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5120,6 +5175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1822701651}
   - component: {fileID: 1822701650}
+  - component: {fileID: 1822701652}
   m_Layer: 0
   m_Name: RoomManager
   m_TagString: Untagged
@@ -5157,6 +5213,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1822701652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822701649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13fdaa14eee8f541a8392b1a9aa6d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 11400000, guid: 45b16c915703b204893d2151c3904b47, type: 2}
+  requiredTask: {fileID: 11400000, guid: fef6fe8f7f5b9e24fb828220c6274446, type: 2}
+  dialogueToStart: {fileID: 11400000, guid: 6966d6b0ec693d64da5037472deb2456, type: 2}
 --- !u!1 &1834070207
 GameObject:
   m_ObjectHideFlags: 0
@@ -5385,6 +5456,138 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868193128}
   m_CullTransparentMesh: 1
+--- !u!1 &1868669089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1868669090}
+  - component: {fileID: 1868669092}
+  - component: {fileID: 1868669091}
+  - component: {fileID: 1868669094}
+  m_Layer: 5
+  m_Name: Phone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1868669090
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868669089}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.37423098, y: 0.57574, z: 0.57574}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1636566888}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1868669091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868669089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 454c393dc86e01840a619dc8e1b676e2, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1868669092
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868669089}
+  m_CullTransparentMesh: 1
+--- !u!114 &1868669094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868669089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1868669091}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 608998765}
+        m_TargetAssemblyTypeName: MethodData, Assembly-CSharp
+        m_MethodName: VeeDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1916544860
 GameObject:
   m_ObjectHideFlags: 0
@@ -5518,9 +5721,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1435769812653135008, guid: ec6c9bc22957fe9478b9ffb36024c88c, type: 3}
+      propertyPath: veeDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: cb1eff439d29d784c9e983c7e1a26c1e, type: 2}
+    - target: {fileID: 1435769812653135008, guid: ec6c9bc22957fe9478b9ffb36024c88c, type: 3}
       propertyPath: gummyStarterDialogue
       value: 
-      objectReference: {fileID: 11400000, guid: 479f4bdac1fbfe24cb9f997cd8dedb26, type: 2}
+      objectReference: {fileID: 11400000, guid: ccabb5b3538854b46946848af19e0749, type: 2}
     - target: {fileID: 3304798502615381353, guid: ec6c9bc22957fe9478b9ffb36024c88c, type: 3}
       propertyPath: m_Name
       value: MethodData
@@ -6051,6 +6258,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 98417858}
   - {fileID: 1354149689}
+  - {fileID: 995959754}
   - {fileID: 109417918}
   - {fileID: 1822701651}
   - {fileID: 1916544861}

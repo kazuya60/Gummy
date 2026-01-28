@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
+    public static System.Action OnTasksChanged;
+
     public static TaskManager Instance;
 
     public List<TaskSO> allTasks;
@@ -16,26 +18,41 @@ public class TaskManager : MonoBehaviour
     }
 
     public void ActivateTask(TaskSO task)
-    {
-        if (task == null) return;
+{
+    if (task == null) return;
 
-        task.state = TaskState.Active;
+    task.state = TaskState.Active;
+
+    OnTasksChanged?.Invoke();
+
+    if (TaskUI.Instance != null)
         TaskUI.Instance.Refresh();
-    }
+}
+
 
     public void CompleteTask(TaskSO task)
-    {
-        if (task == null) return;
+{
+    if (task == null) return;
 
-        task.state = TaskState.Completed;
+    task.state = TaskState.Completed;
+
+    OnTasksChanged?.Invoke();
+
+    if (TaskUI.Instance != null)
         TaskUI.Instance.Refresh();
-    }
+}
 
-    public void FailTask(TaskSO task)
-    {
-        if (task == null) return;
 
-        task.state = TaskState.Failed;
+   public void FailTask(TaskSO task)
+{
+    if (task == null) return;
+
+    task.state = TaskState.Failed;
+
+    OnTasksChanged?.Invoke();
+
+    if (TaskUI.Instance != null)
         TaskUI.Instance.Refresh();
-    }
+}
+
 }

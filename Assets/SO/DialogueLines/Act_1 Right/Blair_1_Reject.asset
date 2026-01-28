@@ -20,17 +20,17 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: a62a20394540e214f94d377b76bb149a, type: 2}
     ActorDialogue: "Okay then! I\u2019ll leave you alone but only if you agree to
       do a littleeee thing for me"
-  interactDialogue: {fileID: 0}
+  interactDialogue: {fileID: 11400000, guid: a87deaa130ce6974e93affbf2431fcd2, type: 2}
   interactEvent: 0
-  rejectDialogue: {fileID: 0}
+  rejectDialogue: {fileID: 11400000, guid: 0b329c3ffa02e074881cd2fe4c12ce94, type: 2}
   rejectEvent: 0
   interactStats:
     socialStanding: 0
-    socialAnxiety: 0
+    socialAnxiety: 5
     gummy: 0
   rejectStats:
-    socialStanding: 0
-    socialAnxiety: 0
+    socialStanding: -5
+    socialAnxiety: 5
     gummy: 0
   nextDialogue: {fileID: 0}
   startEvent: 0
@@ -46,5 +46,8 @@ MonoBehaviour:
     socialStanding: 0
     socialAnxiety: 0
     gummy: 0
+  activateTask: {fileID: 0}
+  completeTask: {fileID: 0}
+  failTask: {fileID: 0}
   startBackground: {fileID: 0}
   endBackground: {fileID: 0}

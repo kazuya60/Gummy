@@ -18,5 +18,7 @@ MonoBehaviour:
   down: {fileID: 0}
   right: {fileID: 0}
   left: {fileID: 11400000, guid: d69e3d4c1ab29b24f81bbb287af4e3ac, type: 2}
-  onEnterEvent: 0
+  onEnterEvent: 8
   onExitEvent: 0
+  completeTaskOnEnter: {fileID: 0}
+  failTaskOnEnter: {fileID: 0}

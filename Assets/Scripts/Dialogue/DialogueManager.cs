@@ -174,10 +174,14 @@ public class DialogueManager : MonoBehaviour
 
         // Auto-continue
         if (currentDialogue.nextDialogue != null)
-        {
-            StartDialogue(currentDialogue.nextDialogue);
-            return;
-        }
+{
+    // EndEventStarter();
+    HandleTaskHooks(currentDialogue);
+
+    StartDialogue(currentDialogue.nextDialogue);
+    return;
+}
+
 
         EndDialogue();
     }
@@ -221,6 +225,13 @@ public class DialogueManager : MonoBehaviour
 
         ApplyPhoneChoicesFromDialogue(currentDialogue);
         HandleTaskHooks(currentDialogue);
+        charSprite.gameObject.SetActive(false);
+charSprite.sprite = null;
+
+nameplateRoot.SetActive(false);
+charName.text = "";
+charDialogue.text = "";
+
 
         SetGameplayUIInteractable(true);
         if (isNavigationEnabled)
