@@ -20,6 +20,12 @@ public class RoomManager : MonoBehaviour
 
     public void EnterRoom(RoomSO room)
 {
+    if (room.completeTaskOnEnter != null)
+    TaskManager.Instance.CompleteTask(room.completeTaskOnEnter);
+
+if (room.failTaskOnEnter != null)
+    TaskManager.Instance.FailTask(room.failTaskOnEnter);
+
     if (currentRoom != null &&
         currentRoom.onExitEvent != DialogueEventType.None)
     {

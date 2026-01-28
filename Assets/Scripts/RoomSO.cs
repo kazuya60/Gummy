@@ -15,4 +15,9 @@ public class RoomSO : ScriptableObject
 public DialogueEventType onEnterEvent;
 public DialogueEventType onExitEvent;
 
+[Header("Task Hooks")]
+public TaskSO completeTaskOnEnter;
+public TaskSO failTaskOnEnter;
+
+
 }

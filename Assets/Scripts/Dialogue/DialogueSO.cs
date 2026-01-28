@@ -16,18 +16,18 @@ public class DialogueSO : ScriptableObject
     public DialogueEventType rejectEvent;
 
     [System.Serializable]
-public struct StatDelta
-{
-    public int socialStanding;
-    public int socialAnxiety;
-    public int gummy;
-}
+    public struct StatDelta
+    {
+        public int socialStanding;
+        public int socialAnxiety;
+        public int gummy;
+    }
 
-[Header("Interact Stat Change")]
-public StatDelta interactStats;
+    [Header("Interact Stat Change")]
+    public StatDelta interactStats;
 
-[Header("Reject Stat Change")]
-public StatDelta rejectStats;
+    [Header("Reject Stat Change")]
+    public StatDelta rejectStats;
 
 
 
@@ -43,10 +43,16 @@ public StatDelta rejectStats;
     [Header("Minigame Outcomes")]
     public DialogueSO differenceWinDialogue;
     public DialogueSO differenceLoseDialogue;
-    
+
     [Header("Minigame Stat Changes")]
-public StatDelta winStats;
-public StatDelta loseStats;
+    public StatDelta winStats;
+    public StatDelta loseStats;
+
+    [Header("Task Hooks")]
+    public TaskSO activateTask;
+    public TaskSO completeTask;
+    public TaskSO failTask;
+
 
 
 
@@ -55,7 +61,7 @@ public StatDelta loseStats;
     public BackgroundSO startBackground;
     public BackgroundSO endBackground;
 
-    
+
 
 
 

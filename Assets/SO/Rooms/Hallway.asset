@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Hallway
   m_EditorClassIdentifier: 
   roomName: Hallway
-  roomBackground: {fileID: 21300000, guid: 4987be91627835141b5c00624f344ed9, type: 3}
+  roomBackground: {fileID: 21300000, guid: 501554dd95ba0b444a7296d81dece953, type: 3}
   up: {fileID: 11400000, guid: fb2ca5c978a00014da8997ff7f25d546, type: 2}
   down: {fileID: 0}
   right: {fileID: 0}
   left: {fileID: 11400000, guid: d69e3d4c1ab29b24f81bbb287af4e3ac, type: 2}
+  onEnterEvent: 0
+  onExitEvent: 0

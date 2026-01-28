@@ -41,11 +41,15 @@ public class DialogueEventHandler : MonoBehaviour
 
         { DialogueEventType.ActivateCharacterSprites, () => SetCharacterSpritesActive(true) },
         { DialogueEventType.DeactivateCharacterSprites, () => SetCharacterSpritesActive(false) },
-        { DialogueEventType.ActivateNavigation, () => DialogueManager.Instance.isNavigationEnabled = true }
+        { DialogueEventType.ActivateNavigation, () => DialogueManager.Instance.isNavigationEnabled = true },
+
+        
     };
 
         RefillPool();
     }
+
+    
 
     void OnDoomScroll()
     {
@@ -97,6 +101,10 @@ public class DialogueEventHandler : MonoBehaviour
 
         var src = minigameSourceDialogue;
 
+        if (src != null && src.failTask != null)
+    TaskManager.Instance.FailTask(src.failTask);
+
+
         if (src != null)
         {
             StatManager.Instance.ApplyDelta(src.loseStats);
@@ -113,6 +121,10 @@ public class DialogueEventHandler : MonoBehaviour
         EndSpotDifference();
 
         var src = minigameSourceDialogue;
+
+        if (src != null && src.completeTask != null)
+    TaskManager.Instance.CompleteTask(src.completeTask);
+
 
         if (src != null)
         {

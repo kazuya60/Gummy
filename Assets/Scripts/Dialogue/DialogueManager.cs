@@ -23,9 +23,9 @@ public class DialogueManager : MonoBehaviour
     public Button rejectButton;
 
     [Header("Phone Buttons")]
-public Button doomScrollButton;
-public Button dozeOffButton;
-public Button goOnlineButton;
+    public Button doomScrollButton;
+    public Button dozeOffButton;
+    public Button goOnlineButton;
 
 
 
@@ -50,10 +50,10 @@ public Button goOnlineButton;
         introPanel.SetActive(true);
 
         doomScrollButton.onClick.AddListener(OnDoomScroll);
-dozeOffButton.onClick.AddListener(OnDozeOff);
-goOnlineButton.onClick.AddListener(OnGoOnline);
+        dozeOffButton.onClick.AddListener(OnDozeOff);
+        goOnlineButton.onClick.AddListener(OnGoOnline);
 
-SetPhoneButtonsInteractable(false);
+        SetPhoneButtonsInteractable(false);
 
     }
 
@@ -68,14 +68,16 @@ SetPhoneButtonsInteractable(false);
         }
     }
 
-    void SetPhoneButtonsInteractable(bool value)
-{
-    doomScrollButton.interactable = value;
-    dozeOffButton.interactable = value;
-    goOnlineButton.interactable = value;
 
-    phoneChoicesActive = value;
-}
+
+    void SetPhoneButtonsInteractable(bool value)
+    {
+        doomScrollButton.interactable = value;
+        dozeOffButton.interactable = value;
+        goOnlineButton.interactable = value;
+
+        phoneChoicesActive = value;
+    }
 
 
     private void SetGameplayUIInteractable(bool value)
@@ -93,12 +95,12 @@ SetPhoneButtonsInteractable(false);
         dialogueActive = true;
         dialoguePanel.SetActive(true);
         StartEventStarter();
-        
-        if (dialogue.startBackground != null)
-{
-    backgroundController.SetOverrideBackground(dialogue.startBackground.sprite);
 
-}
+        if (dialogue.startBackground != null)
+        {
+            backgroundController.SetOverrideBackground(dialogue.startBackground.sprite);
+
+        }
 
 
         SetGameplayUIInteractable(false);
@@ -124,37 +126,37 @@ SetPhoneButtonsInteractable(false);
     }
 
     private void ShowLine()
-{
-    var line = segments[index];
-
-    bool hasName =
-        line.character != null &&
-        !string.IsNullOrEmpty(line.character.CharacterName);
-
-    if (hasName)
     {
-        nameplateRoot.SetActive(true);
-        charName.text = line.character.CharacterName;
-    }
-    else
-    {
-        nameplateRoot.SetActive(false);
-        charName.text = "";
-    }
+        var line = segments[index];
 
-    if (line.character != null &&
-        line.character.CharacterSprite != null)
-    {
-        charSprite.gameObject.SetActive(true);
-        charSprite.sprite = line.character.CharacterSprite;
-    }
-    else
-    {
-        charSprite.gameObject.SetActive(false);
-    }
+        bool hasName =
+            line.character != null &&
+            !string.IsNullOrEmpty(line.character.CharacterName);
 
-    charDialogue.text = line.ActorDialogue;
-}
+        if (hasName)
+        {
+            nameplateRoot.SetActive(true);
+            charName.text = line.character.CharacterName;
+        }
+        else
+        {
+            nameplateRoot.SetActive(false);
+            charName.text = "";
+        }
+
+        if (line.character != null &&
+            line.character.CharacterSprite != null)
+        {
+            charSprite.gameObject.SetActive(true);
+            charSprite.sprite = line.character.CharacterSprite;
+        }
+        else
+        {
+            charSprite.gameObject.SetActive(false);
+        }
+
+        charDialogue.text = line.ActorDialogue;
+    }
 
 
 
@@ -197,10 +199,10 @@ SetPhoneButtonsInteractable(false);
         );
 
         interactButton.onClick.RemoveAllListeners();
-rejectButton.onClick.RemoveAllListeners();
+        rejectButton.onClick.RemoveAllListeners();
 
-interactButton.onClick.AddListener(ForceInteract);
-rejectButton.onClick.AddListener(ForceReject);
+        interactButton.onClick.AddListener(ForceInteract);
+        rejectButton.onClick.AddListener(ForceReject);
 
     }
 
@@ -214,23 +216,24 @@ rejectButton.onClick.AddListener(ForceReject);
 
         EndEventStarter();
 
-       backgroundController.ClearOverride();
+        backgroundController.ClearOverride();
 
 
         ApplyPhoneChoicesFromDialogue(currentDialogue);
+        HandleTaskHooks(currentDialogue);
 
         SetGameplayUIInteractable(true);
         if (isNavigationEnabled)
         {
-        RoomManager.Instance.SetNavigationEnabled(true);
+            RoomManager.Instance.SetNavigationEnabled(true);
         }
     }
 
-  void ApplyPhoneChoicesFromDialogue(DialogueSO dialogue)
-{
-    bool enable = dialogue.phoneDialogue != null;
-    SetPhoneButtonsInteractable(enable);
-}
+    void ApplyPhoneChoicesFromDialogue(DialogueSO dialogue)
+    {
+        bool enable = dialogue.phoneDialogue != null;
+        SetPhoneButtonsInteractable(enable);
+    }
 
 
 
@@ -245,105 +248,118 @@ rejectButton.onClick.AddListener(ForceReject);
         dialogueEventHandler.TriggerEvent(currentDialogue.endEvent);
     }
 
+    void HandleTaskHooks(DialogueSO dialogue)
+    {
+        if (dialogue.activateTask != null)
+            TaskManager.Instance.ActivateTask(dialogue.activateTask);
+
+        if (dialogue.completeTask != null)
+            TaskManager.Instance.CompleteTask(dialogue.completeTask);
+
+        if (dialogue.failTask != null)
+            TaskManager.Instance.FailTask(dialogue.failTask);
+    }
+
+
     public void OnDoomScroll()
-{
-    if (!phoneChoicesActive) return;
+    {
+        if (!phoneChoicesActive) return;
 
-    ResolvePhoneChoice(GlobalActionType.DoomScroll);
-}
+        ResolvePhoneChoice(GlobalActionType.DoomScroll);
+    }
 
-public void OnDozeOff()
-{
-    if (!phoneChoicesActive) return;
+    public void OnDozeOff()
+    {
+        if (!phoneChoicesActive) return;
 
-    ResolvePhoneChoice(GlobalActionType.DozeOff);
-}
+        ResolvePhoneChoice(GlobalActionType.DozeOff);
+    }
 
-public void OnGoOnline()
-{
-    if (!phoneChoicesActive) return;
+    public void OnGoOnline()
+    {
+        if (!phoneChoicesActive) return;
 
-    ResolvePhoneChoice(GlobalActionType.GoOnline);
-}
+        ResolvePhoneChoice(GlobalActionType.GoOnline);
+    }
 
-void ResolvePhoneChoice(GlobalActionType action)
-{
-    // Hide interact/reject if it is open
-    if (decisionPanel.activeSelf)
-        decisionPanel.SetActive(false);
+    void ResolvePhoneChoice(GlobalActionType action)
+    {
+        // Hide interact/reject if it is open
+        if (decisionPanel.activeSelf)
+            decisionPanel.SetActive(false);
 
-    // Disable phone buttons immediately
-    SetPhoneButtonsInteractable(false);
+        // Disable phone buttons immediately
+        SetPhoneButtonsInteractable(false);
 
-    // Fire global event
-    if (action != GlobalActionType.None)
-    dialogueEventHandler.TriggerGlobalAction(action);
+        // Fire global event
+        if (action != GlobalActionType.None)
+            dialogueEventHandler.TriggerGlobalAction(action);
 
 
-    // Continue into phone dialogue
-    if (currentDialogue.phoneDialogue != null)
-        StartDialogue(currentDialogue.phoneDialogue);
-    else
-        EndDialogue();
-}
+        // Continue into phone dialogue
+        if (currentDialogue.phoneDialogue != null)
+            StartDialogue(currentDialogue.phoneDialogue);
+        else
+            EndDialogue();
+    }
 
 
 
 
 
     public void ForceInteract()
-{
-    if (!decisionPanel.activeSelf)
-        return;
-
-    decisionPanel.SetActive(false);
-
-    // Apply stats FIRST
-    StatManager.Instance.ApplyDelta(currentDialogue.interactStats);
-
-    // Fire narrative event
-    if (currentDialogue.interactEvent != DialogueEventType.None)
     {
-        dialogueEventHandler.TriggerEvent(currentDialogue.interactEvent);
-    }
+        if (!decisionPanel.activeSelf)
+            return;
 
-    // Continue interact dialogue if assigned
-    if (currentDialogue.interactDialogue != null)
-    {
-        StartDialogue(currentDialogue.interactDialogue);
+        decisionPanel.SetActive(false);
+
+        // Apply stats FIRST
+        StatManager.Instance.ApplyDelta(currentDialogue.interactStats);
+
+        // Fire narrative event
+        if (currentDialogue.interactEvent != DialogueEventType.None)
+        {
+            dialogueEventHandler.TriggerEvent(currentDialogue.interactEvent);
+        }
+
+        // Continue interact dialogue if assigned
+        if (currentDialogue.interactDialogue != null)
+        {
+            StartDialogue(currentDialogue.interactDialogue);
+        }
+        else
+        {
+            EndDialogue();
+        }
     }
-    else
-    {
-        EndDialogue();
-    }
-}
 
     public void ForceReject()
-{
-    if (!decisionPanel.activeSelf)
-        return;
-
-    decisionPanel.SetActive(false);
-
-    // Apply stats FIRST
-    StatManager.Instance.ApplyDelta(currentDialogue.rejectStats);
-
-    // Fire narrative event
-    if (currentDialogue.rejectEvent != DialogueEventType.None)
     {
-        dialogueEventHandler.TriggerEvent(currentDialogue.rejectEvent);
-    }
+        if (!decisionPanel.activeSelf)
+            return;
 
-    // Continue reject dialogue if assigned
-    if (currentDialogue.rejectDialogue != null)
-    {
-        StartDialogue(currentDialogue.rejectDialogue);
+        decisionPanel.SetActive(false);
+
+        // Apply stats FIRST
+        StatManager.Instance.ApplyDelta(currentDialogue.rejectStats);
+
+        // Fire narrative event
+        if (currentDialogue.rejectEvent != DialogueEventType.None)
+        {
+            dialogueEventHandler.TriggerEvent(currentDialogue.rejectEvent);
+        }
+
+        // Continue reject dialogue if assigned
+        if (currentDialogue.rejectDialogue != null)
+        {
+            StartDialogue(currentDialogue.rejectDialogue);
+        }
+        else
+        {
+            EndDialogue();
+        }
     }
-    else
-    {
-        EndDialogue();
-    }
-}
 
 
 
