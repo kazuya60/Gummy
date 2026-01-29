@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Teacher's Room
   m_EditorClassIdentifier: 
   roomName: Teacher's Room
-  roomBackground: {fileID: 21300000, guid: 93e4e6bc29380164483b266eb511b0ad, type: 3}
+  roomBackground: {fileID: 21300000, guid: 41805808eba9ac946a5949691583dabe, type: 3}
   up: {fileID: 0}
   down: {fileID: 11400000, guid: fb2ca5c978a00014da8997ff7f25d546, type: 2}
   right: {fileID: 0}

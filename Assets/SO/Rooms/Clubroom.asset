@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Clubroom
   m_EditorClassIdentifier: 
   roomName: Clubroom
-  roomBackground: {fileID: 21300000, guid: 2921527e0ba144a4e869b092d3647943, type: 3}
+  roomBackground: {fileID: 21300000, guid: e95e3951150b47b4ebddf4052f01b4ba, type: 3}
   up: {fileID: 0}
   down: {fileID: 0}
   right: {fileID: 11400000, guid: fb2ca5c978a00014da8997ff7f25d546, type: 2}
