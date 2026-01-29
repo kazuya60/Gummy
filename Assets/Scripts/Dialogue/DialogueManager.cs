@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,6 +6,45 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
+    [Header("Line Finished Indicator")]
+[SerializeField] GameObject lineFinishedImage;
+
+
+    [Header("Typewriter")]
+[SerializeField] float typeSpeed = 0.03f;
+
+Coroutine typingRoutine;
+bool isTyping;
+string fullLine;
+
+[Header("Typewriter Volume")]
+[SerializeField] float typingVolume = 0.25f;
+
+[Header("Dialogue Ducking")]
+[SerializeField] AudioSource musicSource;
+[SerializeField] float duckVolume = 0.5f;
+[SerializeField] float duckSpeed = 6f;
+
+float originalMusicVolume;
+
+
+
+[Header("Typewriter Audio")]
+[SerializeField] AudioSource typeAudioSource;
+[SerializeField] AudioClip[] typingClips;
+[SerializeField] float soundCooldown = 0.04f;
+
+float lastSoundTime;
+
+[Header("Typewriter Punctuation")]
+[SerializeField] float commaPause = 0.15f;
+[SerializeField] float sentencePause = 0.35f;
+
+[Header("Typewriter Pitch")]
+[SerializeField] Vector2 pitchRange = new Vector2(0.9f, 1.1f);
+
+
+
 
     [Header("Dialogue UI")]
     public GameObject dialoguePanel;
@@ -63,9 +103,17 @@ public class DialogueManager : MonoBehaviour
             return;
 
         if (Input.GetMouseButtonDown(0))
-        {
-            Next();
-        }
+{
+    if (isTyping)
+    {
+        SkipTyping();
+    }
+    else
+    {
+        Next();
+    }
+}
+
     }
 
 
@@ -88,6 +136,9 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(DialogueSO dialogue)
     {
+        if (musicSource != null)
+    originalMusicVolume = musicSource.volume;
+
         currentDialogue = dialogue;
         segments = dialogue.dialogueSegments;
         index = 0;
@@ -155,7 +206,8 @@ public class DialogueManager : MonoBehaviour
             charSprite.gameObject.SetActive(false);
         }
 
-        charDialogue.text = line.ActorDialogue;
+        StartTyping(line.ActorDialogue);
+
     }
 
 
@@ -188,6 +240,8 @@ public class DialogueManager : MonoBehaviour
 
     private void ShowDecisionButtons()
     {
+        lineFinishedImage?.SetActive(false);
+
         ApplyPhoneChoicesFromDialogue(currentDialogue);
 
         decisionPanel.SetActive(true);
@@ -214,6 +268,13 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
+        if (typingRoutine != null)
+    StopCoroutine(typingRoutine);
+    lineFinishedImage?.SetActive(false);
+
+
+isTyping = false;
+
         dialogueActive = false;
         dialoguePanel.SetActive(false);
         decisionPanel.SetActive(false);
@@ -371,6 +432,122 @@ charDialogue.text = "";
             EndDialogue();
         }
     }
+
+    void StartTyping(string line)
+{
+    if (typingRoutine != null)
+        StopCoroutine(typingRoutine);
+
+    fullLine = line;
+
+    lineFinishedImage?.SetActive(false);
+
+    typingRoutine = StartCoroutine(TypeRoutine());
+}
+
+IEnumerator TypeRoutine()
+{
+    DuckMusic(true);
+
+    isTyping = true;
+    charDialogue.text = "";
+
+    lastSoundTime = -999f;
+
+    foreach (char c in fullLine)
+    {
+        charDialogue.text += c;
+
+        PlayTypingSound();
+
+        float delay = typeSpeed;
+
+        if (c == ',' || c == ';')
+            delay += commaPause;
+        else if (c == '.' || c == '!' || c == '?')
+            delay += sentencePause;
+
+        yield return new WaitForSeconds(delay);
+    }
+
+    isTyping = false;
+typingRoutine = null;
+
+lineFinishedImage?.SetActive(true);
+
+    DuckMusic(false);
+
+}
+
+
+void PlayTypingSound()
+{
+    if (typingClips.Length == 0 || typeAudioSource == null)
+        return;
+
+    if (Time.time - lastSoundTime < soundCooldown)
+        return;
+
+    lastSoundTime = Time.time;
+
+    float t = Random.value;
+t = t * t; // bias toward upper end
+
+typeAudioSource.pitch = Mathf.Lerp(pitchRange.x, pitchRange.y, t);
+
+
+    typeAudioSource.PlayOneShot(
+    typingClips[Random.Range(0, typingClips.Length)],
+    typingVolume
+);
+
+}
+
+
+
+void SkipTyping()
+{
+    if (!isTyping)
+        return;
+
+    if (typingRoutine != null)
+        StopCoroutine(typingRoutine);
+
+    charDialogue.text = fullLine;
+
+    isTyping = false;
+    typingRoutine = null;
+
+    lineFinishedImage?.SetActive(true);
+}
+
+
+void DuckMusic(bool duck)
+{
+    if (musicSource == null)
+        return;
+
+    float target = duck ? duckVolume : originalMusicVolume;
+
+    StopCoroutine(nameof(DuckRoutine));
+    StartCoroutine(DuckRoutine(target));
+}
+
+IEnumerator DuckRoutine(float target)
+{
+    while (!Mathf.Approximately(musicSource.volume, target))
+    {
+        musicSource.volume = Mathf.MoveTowards(
+            musicSource.volume,
+            target,
+            duckSpeed * Time.deltaTime);
+
+        yield return null;
+    }
+}
+
+
+
 
 
 
