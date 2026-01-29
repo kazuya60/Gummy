@@ -32,14 +32,30 @@ MonoBehaviour:
   interactEvent: 0
   rejectDialogue: {fileID: 0}
   rejectEvent: 0
+  interactStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
+  rejectStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
   nextDialogue: {fileID: 11400000, guid: 8a7146ee3a586ca4fb3fb039b46eec8a, type: 2}
   startEvent: 0
   endEvent: 0
   phoneDialogue: {fileID: 0}
-  doomScrollEvent: 0
-  dozeOffEvent: 0
-  goOnlineEvent: 0
   differenceWinDialogue: {fileID: 0}
   differenceLoseDialogue: {fileID: 0}
+  winStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
+  loseStats:
+    socialStanding: 0
+    socialAnxiety: 0
+    gummy: 0
+  activateTask: {fileID: 0}
+  completeTask: {fileID: 0}
+  failTask: {fileID: 0}
   startBackground: {fileID: 0}
-  endBackground: {fileID: 11400000, guid: 3134e616fb3e78c40b88a2d55bd1c67b, type: 2}
+  endBackground: {fileID: 0}
