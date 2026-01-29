@@ -5,6 +5,23 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    [Header("Phone Canvas Fade")]
+[SerializeField] float fadeDuration = 0.35f;
+
+CanvasGroup doomScrollGroup;
+CanvasGroup dozeOffGroup;
+CanvasGroup goOnlineGroup;
+
+
+    [Header("Phone Result Canvases")]
+[SerializeField] GameObject doomScrollCanvas;
+[SerializeField] GameObject dozeOffCanvas;
+[SerializeField] GameObject goOnlineCanvas;
+
+[SerializeField] float phoneResultDuration = 2.5f;
+
+Coroutine phoneCanvasRoutine;
+
     public static DialogueManager Instance;
     [Header("Line Finished Indicator")]
 [SerializeField] GameObject lineFinishedImage;
@@ -88,6 +105,10 @@ float lastSoundTime;
         dialoguePanel.SetActive(false);
         decisionPanel.SetActive(false);
         introPanel.SetActive(true);
+        doomScrollGroup = doomScrollCanvas.GetComponent<CanvasGroup>();
+dozeOffGroup = dozeOffCanvas.GetComponent<CanvasGroup>();
+goOnlineGroup = goOnlineCanvas.GetComponent<CanvasGroup>();
+
 
         doomScrollButton.onClick.AddListener(OnDoomScroll);
         dozeOffButton.onClick.AddListener(OnDozeOff);
@@ -355,25 +376,101 @@ charDialogue.text = "";
     }
 
     void ResolvePhoneChoice(GlobalActionType action)
+{
+    if (decisionPanel.activeSelf)
+        decisionPanel.SetActive(false);
+
+    SetPhoneButtonsInteractable(false);
+
+    if (action != GlobalActionType.None)
+        dialogueEventHandler.TriggerGlobalAction(action);
+
+    ShowPhoneResultCanvas(action);
+}
+
+void ShowPhoneResultCanvas(GlobalActionType action)
+{
+    if (phoneCanvasRoutine != null)
+        StopCoroutine(phoneCanvasRoutine);
+
+    doomScrollCanvas?.SetActive(false);
+    dozeOffCanvas?.SetActive(false);
+    goOnlineCanvas?.SetActive(false);
+
+    GameObject target = null;
+
+    switch (action)
     {
-        // Hide interact/reject if it is open
-        if (decisionPanel.activeSelf)
-            decisionPanel.SetActive(false);
+        case GlobalActionType.DoomScroll:
+            target = doomScrollCanvas;
+            break;
 
-        // Disable phone buttons immediately
-        SetPhoneButtonsInteractable(false);
+        case GlobalActionType.DozeOff:
+            target = dozeOffCanvas;
+            break;
 
-        // Fire global event
-        if (action != GlobalActionType.None)
-            dialogueEventHandler.TriggerGlobalAction(action);
-
-
-        // Continue into phone dialogue
-        if (currentDialogue.phoneDialogue != null)
-            StartDialogue(currentDialogue.phoneDialogue);
-        else
-            EndDialogue();
+        case GlobalActionType.GoOnline:
+            target = goOnlineCanvas;
+            break;
     }
+
+    if (target == null)
+    {
+        ContinueAfterPhone();
+        return;
+    }
+
+    phoneCanvasRoutine = StartCoroutine(
+        PhoneCanvasRoutine(target)
+    );
+}
+
+IEnumerator PhoneCanvasRoutine(GameObject canvas)
+{
+    CanvasGroup group = canvas.GetComponent<CanvasGroup>();
+
+    canvas.SetActive(true);
+
+    yield return FadeCanvas(group, 0f, 1f);
+
+    yield return new WaitForSeconds(phoneResultDuration);
+
+    yield return FadeCanvas(group, 1f, 0f);
+
+    canvas.SetActive(false);
+
+    ContinueAfterPhone();
+}
+
+IEnumerator FadeCanvas(CanvasGroup group, float from, float to)
+{
+    float t = 0f;
+
+    group.alpha = from;
+
+    while (t < fadeDuration)
+    {
+        t += Time.deltaTime;
+        group.alpha = Mathf.Lerp(from, to, t / fadeDuration);
+        yield return null;
+    }
+
+    group.alpha = to;
+}
+
+
+
+void ContinueAfterPhone()
+{
+    phoneCanvasRoutine = null;
+
+    if (currentDialogue.phoneDialogue != null)
+        StartDialogue(currentDialogue.phoneDialogue);
+    else
+        EndDialogue();
+}
+
+
 
 
 
