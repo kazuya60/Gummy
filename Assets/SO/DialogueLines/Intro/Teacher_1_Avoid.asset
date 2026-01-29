@@ -28,7 +28,7 @@ MonoBehaviour:
     socialStanding: 0
     socialAnxiety: 0
     gummy: 0
-  nextDialogue: {fileID: 0}
+  nextDialogue: {fileID: 11400000, guid: c1448bbbe76fba645bf5266e92f9b52b, type: 2}
   startEvent: 0
   endEvent: 0
   phoneDialogue: {fileID: 0}
@@ -42,5 +42,8 @@ MonoBehaviour:
     socialStanding: 0
     socialAnxiety: 0
     gummy: 0
+  activateTask: {fileID: 0}
+  completeTask: {fileID: 0}
+  failTask: {fileID: 0}
   startBackground: {fileID: 0}
   endBackground: {fileID: 0}
