@@ -14,6 +14,7 @@ public class RoomManager : MonoBehaviour
 
     public ArrowUI arrows;
     private HashSet<RoomSO> roomsWithTriggeredEnterEvent = new();
+    public bool enableNavigation = false;
 
 
     private void Awake()
@@ -55,7 +56,10 @@ public class RoomManager : MonoBehaviour
     public RoomSO CurrentRoom => currentRoom;
     public void SetNavigationEnabled(bool value)
 {
-    arrows.gameObject.SetActive(value);
+    if (enableNavigation == true)
+    {
+    arrows.gameObject.SetActive(value);        
+    }
 }
 
 }

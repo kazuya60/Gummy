@@ -13,7 +13,8 @@ public enum DialogueEventType
     SetChoiceBella1,
     SetChoiceBella2,
     SetChoiceVee,
-    ActivateNavigation
+    ActivateNavigation,
+    DeactivateNavigation
 }
 
 public enum GlobalActionType

@@ -97,7 +97,6 @@ float lastSoundTime;
 
     public DialogueEventHandler dialogueEventHandler;
 
-    public bool isNavigationEnabled = false;
 
     private void Awake()
     {
@@ -316,10 +315,8 @@ charDialogue.text = "";
 
 
         SetGameplayUIInteractable(true);
-        if (isNavigationEnabled)
-        {
             RoomManager.Instance.SetNavigationEnabled(true);
-        }
+        
     }
 
     void ApplyPhoneChoicesFromDialogue(DialogueSO dialogue)

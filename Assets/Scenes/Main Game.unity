@@ -1514,7 +1514,6 @@ MonoBehaviour:
   dozeOffButton: {fileID: 940418784}
   goOnlineButton: {fileID: 808123440}
   dialogueEventHandler: {fileID: 202665310}
-  isNavigationEnabled: 1
 --- !u!82 &479326723
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6348,6 +6347,7 @@ MonoBehaviour:
   startingRoom: {fileID: 11400000, guid: d69e3d4c1ab29b24f81bbb287af4e3ac, type: 2}
   backgroundController: {fileID: 1354149690}
   arrows: {fileID: 1636566884}
+  enableNavigation: 0
 --- !u!4 &1822701651
 Transform:
   m_ObjectHideFlags: 0

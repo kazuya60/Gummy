@@ -55,7 +55,9 @@ public class DialogueEventHandler : MonoBehaviour
         { DialogueEventType.ActivateCharacterSprites, () => SetCharacterSpritesActive(true) },
         { DialogueEventType.DeactivateCharacterSprites, () => SetCharacterSpritesActive(false) },
         { DialogueEventType.DisableBothAprilAndTeacher, DisableBothAprilAndTeacher },
-        { DialogueEventType.ActivateNavigation, () => DialogueManager.Instance.isNavigationEnabled = true },
+        { DialogueEventType.ActivateNavigation, () => RoomManager.Instance.enableNavigation = true },
+        { DialogueEventType.DeactivateNavigation, () => RoomManager.Instance.enableNavigation = false }
+
 
         
     };
@@ -129,7 +131,7 @@ public class DialogueEventHandler : MonoBehaviour
     {
         DisableCharacter(TeacherCharacter);
         DisableCharacter(AprilCharacter);
-        DialogueManager.Instance.isNavigationEnabled = true;
+        RoomManager.Instance.enableNavigation = true;
     }
 
 
