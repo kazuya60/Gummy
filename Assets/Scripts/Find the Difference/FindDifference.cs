@@ -29,6 +29,7 @@ public class FindDifference : MonoBehaviour
     [Header("Dialogue Events")]
 private DialogueEventType successEvent;
 private DialogueEventType failureEvent;
+    private RoomManager roomManager;
 
 
 
@@ -36,6 +37,10 @@ private DialogueEventType failureEvent;
 
     void Start()
     {
+        roomManager = RoomManager.Instance;
+
+    if (roomManager != null)
+        roomManager.SetNavigationEnabled(false);
         successEvent = DialogueEventType.DifferenceSuccess;
         failureEvent = DialogueEventType.DifferenceFailure;
         totalDifferences = differencesParent.childCount;
@@ -147,10 +152,12 @@ private DialogueEventType failureEvent;
 
     private void EndGame(bool success)
 {
+
     if (gameEnded)
         return;
 
     gameEnded = true;
+    roomManager.SetNavigationEnabled(true);
 
     if (success)
     {

@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: Gummy
-  defaultCursor: {fileID: 2800000, guid: e0f129e3622884547b48bbd7c7d83731, type: 3}
+  defaultCursor: {fileID: 2800000, guid: f99ab2ea6499c2749a14a9549c8d4f74, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
