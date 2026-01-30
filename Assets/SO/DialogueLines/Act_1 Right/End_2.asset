@@ -50,3 +50,4 @@ MonoBehaviour:
   failTask: {fileID: 0}
   startBackground: {fileID: 11400000, guid: b2888080ba5eb684696c8a57628b91fc, type: 2}
   endBackground: {fileID: 11400000, guid: b2888080ba5eb684696c8a57628b91fc, type: 2}
+  isFinalDialogue: 1

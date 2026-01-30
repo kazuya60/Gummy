@@ -61,6 +61,8 @@ public class DialogueSO : ScriptableObject
     public BackgroundSO startBackground;
     public BackgroundSO endBackground;
 
+    public bool isFinalDialogue = false;
+
 
 
 

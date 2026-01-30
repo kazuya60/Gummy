@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -288,7 +289,9 @@ goOnlineGroup = goOnlineCanvas.GetComponent<CanvasGroup>();
 
     private void EndDialogue()
     {
-        if (typingRoutine != null)
+        if (currentDialogue.isFinalDialogue == false)
+        {
+            if (typingRoutine != null)
     StopCoroutine(typingRoutine);
     lineFinishedImage?.SetActive(false);
 
@@ -316,8 +319,31 @@ charDialogue.text = "";
 
         SetGameplayUIInteractable(true);
             RoomManager.Instance.SetNavigationEnabled(true);
+        }
+
+        else
+{
+    Debug.Log("Final dialogue ended. Game over or transition to next scene.");
+
+    Time.timeScale = 0f;
+    StartCoroutine(RestartAfterDelay(10f));
+}
+
+        
         
     }
+
+    IEnumerator RestartAfterDelay(float seconds)
+{
+    yield return new WaitForSecondsRealtime(seconds);
+
+    Time.timeScale = 1f;
+
+    UnityEngine.SceneManagement.SceneManager.LoadScene(
+        UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+}
+
+
 
     void ApplyPhoneChoicesFromDialogue(DialogueSO dialogue)
     {
